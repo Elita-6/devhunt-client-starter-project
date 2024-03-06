@@ -3,6 +3,7 @@ import GitHubProvider from "next-auth/providers/github";
 import GoogleProvider from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
 import axios from "axios";
+import {cookies} from "next/headers";
 
 export const handlers= NextAuth({
     //todo: separate this in auth.config file
@@ -56,10 +57,9 @@ export const handlers= NextAuth({
                 typeProvider:account?.provider
             })
             if (test.status == 200){
-                console.log("test")
-                console.log(test.data)
+                cookies().set("token",test.data.token)
             }
             return true
-        }
-    }
+        },
+    },
 })

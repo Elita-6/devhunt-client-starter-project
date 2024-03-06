@@ -1,13 +1,28 @@
-import axios , {AxiosInstance , AxiosResponse} from "axios";
+import axios, {AxiosInstance, AxiosRequestConfig, AxiosResponse} from "axios";
+import {cookies} from "next/headers";
 
 
 
 class HttpClient {
 
     private  client(): AxiosInstance  {
-        return axios.create({
+        const axiosConfig: AxiosRequestConfig = {
             baseURL: "https://devhunt-starter-api-production.up.railway.app/api"
-        })
+
+        }
+        let axiosInstance = axios.create(axiosConfig)
+        axiosInstance.interceptors.request.use((config) => {
+            const cookieStore = cookies()
+            const accessToken = cookieStore.get('token')
+                if (accessToken) {
+                    config.headers.Authorization = `Bearer ${accessToken?.value}`;
+                }
+                return config
+            }, (error) => {
+                return Promise.reject(error)
+            }
+        )
+        return axiosInstance
     }
 
     public get(url: string) {

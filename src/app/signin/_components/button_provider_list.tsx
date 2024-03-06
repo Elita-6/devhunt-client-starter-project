@@ -12,7 +12,7 @@ const ButtonProviders = () => {
         <Button
             onClick={()=>signIn("google",{callbackUrl})}
             variant='outline'
-            className='flex items-center space-x-3  '>
+            className='flex items-center space-x-3 px-12 '>
             <Image src='google.svg' alt='google icon' width={20} height={20}/>
             <p>Continue with google</p>
         </Button>
@@ -24,7 +24,7 @@ const ButtonProviders = () => {
         <Button
             onClick={()=>signIn("github",{callbackUrl})}
             variant='outline'
-            className='flex items-center space-x-3 ' >
+            className='flex items-center space-x-3  px-12' >
             <FaGithub className='w-4 h-4'/>
             <p className=''>Continue with github</p>
         </Button>

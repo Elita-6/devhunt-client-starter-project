@@ -34,17 +34,21 @@ export const AuthWrapper = () => {
 
 export const LoginButton =  () => {
     return(
-        <Button className="h-[2.5rem] px-6">
-            Login
-        </Button>
+        <Link href="/signin">
+            <Button className="h-[2.5rem] px-6">
+                Login
+            </Button>
+        </Link>
     )
 
 }
 export  const SignUpButton = () => {
     return(
-        <Button variant="outline" className="h-[2.5rem] px-6">
-            Sign Up
-        </Button>
+        <Link href='/signin'>
+            <Button variant="outline" className="h-[2.5rem] px-6" >
+                Sign Up
+            </Button>
+        </Link>
     )
 }
 
