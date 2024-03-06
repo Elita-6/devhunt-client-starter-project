@@ -4,9 +4,39 @@ import BolidaDiscuBar from "@/app/dashboard/(bolida)/_components/bolida_discu_ba
 import Image from "next/image";
 import {useSession} from "next-auth/react";
 import BolidaForm from "@/app/dashboard/(bolida)/_components/form_bolida";
+import {IMessage} from "@/app/dashboard/(bolida)/_services/definition";
+import Message from "@/app/dashboard/(bolida)/_components/message";
 interface Props{
     HandleCLickBolidaButton:()=>void
 }
+const messages: IMessage[] = [
+    {
+        messageId: "1",
+        messageContent: "Bonjour!",
+        isBot: false
+    },
+    {
+        messageId: "2",
+        messageContent: "Comment allez-vous?",
+        isBot: true
+    },
+    {
+        messageId: "3",
+        messageContent: "Je vais bien, merci!",
+        isBot: false
+    },
+    {
+        messageId: "4",
+        messageContent: "Je vais bien, merci!",
+        isBot: true
+    },
+    {
+        messageId: "5",
+        messageContent: "Je vais bien, merci!",
+        isBot: true
+    },
+];
+
 const BolidaDiscuContainer = (props:Props) => {
     const session = useSession();
     return (
@@ -22,6 +52,14 @@ const BolidaDiscuContainer = (props:Props) => {
                     )
                 }
             </div>
+            <div className="mt-4 p-3 ">
+                {
+                  messages.map((message,key)=>(
+                      <Message key={key} messageId={message.messageId} messageContent={message.messageContent} isBot={message.isBot}/>
+                  ))
+                }
+            </div>
+            <div className="mt-[8vh]"/>
             <BolidaForm/>
         </div>
     );
