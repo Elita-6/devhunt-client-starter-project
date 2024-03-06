@@ -2,9 +2,9 @@ import React, {PropsWithChildren} from 'react';
 
 export  default function  ExampleLayout ({ children }: PropsWithChildren) {
     return (
-        <div>
+        <section className="min-w-full">
             {children}
-        </div>
+        </section>
     );
 };
 
