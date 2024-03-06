@@ -1,11 +1,15 @@
 import React, {PropsWithChildren} from 'react';
 import LeftBarNavigation from "@/app/dashboard/_components/left_bar_navigation";
+import DashboardNavBar from "@/app/dashboard/_components/dashboard_nav_bar";
 
 export  default function  ExampleLayout ({ children }: PropsWithChildren) {
     return (
         <div className='flex'>
             <LeftBarNavigation/>
-            {children}
+            <div className=''>
+                <DashboardNavBar/>
+                {children}
+            </div>
         </div>
     );
 };
