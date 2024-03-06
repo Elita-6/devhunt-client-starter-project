@@ -8,7 +8,7 @@ const NavBarWrapper = () => {
     return (
         <>
             {
-                pathname == "/signin" ? (
+                pathname != "/"  ? (
                     <></>
                 ):(
                     <Navbar/>
