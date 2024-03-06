@@ -9,7 +9,6 @@ export default function ExampleLayout({ children }: PropsWithChildren) {
             <LeftBarNavigation />
             <div className=' flex-col space-y-3 w-full'>
                 <DashboardNavBar/>
-                <DashboardNavBar />
                 {children}
             </div>
         </div>
