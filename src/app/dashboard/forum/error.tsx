@@ -1,11 +1,12 @@
+'use client'
 import React from 'react';
 
-const NotFound = () => {
+const ErrorPage = () => {
     return (
         <div>
-            
+
         </div>
     );
 };
 
-export default NotFound;
+export default ErrorPage;
