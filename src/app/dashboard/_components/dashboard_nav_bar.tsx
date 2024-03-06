@@ -1,31 +1,22 @@
 "use client"
 import React from 'react';
-import {useSession} from "next-auth/react";
-import {AuthWrapper} from "@/app/_common/components/auth_components";
 import Searchbar from "@/app/dashboard/_components/serach_bar";
-import {CustomAvatar} from "@/app/_common/components/avatar";
+import DropdownMenuContainer from "@/app/dashboard/_components/dropdown_menu";
+import {Bell} from "lucide-react";
 
 const DashboardNavBar = () => {
-    const session = useSession();
-    if(session.data){
-        const data = session.data.user;
         return (
             <div className='relative w-full p-4'>
-                <div className='absolute left-0'>
+                <div className='absolute left-3'>
                     <Searchbar/>
                 </div>
-                <div className='flex justify-end'>
-                    <CustomAvatar image_url={data?.image!} username={data?.name!} style='h-12 w-12' />
-
+                <div className='flex items-center justify-end space-x-6'>
+                    <Bell size={25} />
+                    <DropdownMenuContainer/>
                 </div>
             </div>
         )
-    }else{
-        return (
-            <>
-            </>
-        )
-    }
+
 };
 
 export default DashboardNavBar;
