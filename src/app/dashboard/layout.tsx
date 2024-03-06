@@ -4,9 +4,9 @@ import DashboardNavBar from "@/app/dashboard/_components/dashboard_nav_bar";
 
 export  default function  ExampleLayout ({ children }: PropsWithChildren) {
     return (
-        <div className='flex'>
+        <div className='flex w-full'>
             <LeftBarNavigation/>
-            <div className=''>
+            <div className=' flex-col space-y-3 w-full'>
                 <DashboardNavBar/>
                 {children}
             </div>
