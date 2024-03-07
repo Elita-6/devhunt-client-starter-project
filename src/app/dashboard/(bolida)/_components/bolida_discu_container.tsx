@@ -14,6 +14,9 @@ interface Props{
 const BolidaDiscuContainer = (props:Props) => {
     const session = useSession();
     const{data,isLoading,isSuccess}=useFetchAllMessage()
+    if(isSuccess){
+        console.log("test")
+    }
     return (
         <div className="fixed right-20   bottom-20 bg-white shadow-md  z-40 h-[70vh] w-[30vw] overflow-y-scroll">
             <BolidaDiscuBar HandleCLickBolidaButton={props.HandleCLickBolidaButton}/>

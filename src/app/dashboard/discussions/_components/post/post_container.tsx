@@ -41,7 +41,8 @@ const posts: IPost[] = [
 ];
 
 const PostContainer = () => {
-    const{}= useFetchAllPost()
+    const{data,isLoading}= useFetchAllPost()
+
     return (
         <div className="px-8">
             {
