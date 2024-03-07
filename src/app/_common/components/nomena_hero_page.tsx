@@ -5,10 +5,10 @@ import Image from "next/image";
 
 const HeroPage = () => {
     return (
-        <div className="flex justify-between px-[10%]  mt-32">
-            <div className='flex flex-col items-start  text-center   gap-7'>
+        <div className="flex justify-between px-[10%] space-x-14 mt-32">
+            <div className='flex flex-col items-start  text-center    gap-7'>
                 <div className="flex flex-col items-start gap-3">
-                    <h1 className='text-[3.5rem] text-start font-bold leading-tight w-[16ch] md:w-[24ch] text-primary lg:max-w-[28ch]'>
+                    <h1 className='text-[2.5rem] text-start font-bold leading-tight w-[16ch] md:w-[24ch] text-primary lg:max-w-[28ch]'>
                         Start your journey of student immersion easily with Miray App
                     </h1>
                     <p className='text-lg text-start max-w-[54ch]'>

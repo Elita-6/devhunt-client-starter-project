@@ -8,9 +8,7 @@ export default function Home() {
     <div className='flex-col items-center'>
       <HeroPage />
       <div className='flex space-x-5 mx-10 justify-center items-center px-4'>
-        <Card />
-        <Card />
-        <Card />
+
       </div>
     </div>
     // <main className="flex h-full flex-col items-center justify-between p-24">
