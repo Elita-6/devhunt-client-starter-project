@@ -1,7 +1,6 @@
-import React, { useCallback } from "react";
+import React from "react";
 import clsx from "clsx";
 import SelectedTag from "./selected_box";
-// import {normalize} from "@/app/blog/lib/utils";
 
 export type SelectableItem = {
     tagDesign:string,
@@ -38,17 +37,17 @@ export default function SelectionInput<T extends SelectableItem>({
             <label htmlFor="items" className="form-label">
                 {label}
             </label>
-            <div className="w-full flex flex-wrap form-input bg-gray-50  gap-1">
+            <div className="w-full flex flex-wrap form-input  py-2  px-2 gap-1 bg-[#E8F4FC] ">
                 {selectedItems.length !== 0 &&
                     selectedItems.map((item) => (
                         <SelectedTag key={item.tagDesign} selectedItem={item} onClick={() =>onItemRemove(item)} />
                     ))}
-                <div className="relative flex items-center w-full ">
+                <div className="relative flex items-center  ">
                     <input
                         id="items"
                         type="search"
                         name="items"
-                        className="bg-[#E8F4FC] p-2  w-full border-none focus:outline-none focus:border-none "
+                        className=" p-4  w-full bg-[#E8F4FC]  border-none focus:outline-none focus:border-none "
                         placeholder="find a tags for your post..."
                         value={searchQuery}
                         onChange={onSearchInputChange}

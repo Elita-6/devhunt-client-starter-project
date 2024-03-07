@@ -31,7 +31,7 @@ export const useFetchAllPost =()=>{
 
 export const useFetchAllTag =(query:string)=>{
     return useQuery({
-        queryKey:['tags'],
+        queryKey:['tags',query],
         queryFn:()=> postService.getAllTags(query)
     })
 }

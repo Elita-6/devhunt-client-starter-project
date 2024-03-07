@@ -1,5 +1,5 @@
 export enum POST_ENDPOINTS{
-    CREATE = "/post/create",
+    CREATE = "/post",
     GET_ALL="/post?page=number_page?size=size_number",
     GET="/post/id",
     UPDATE="/post/id",
@@ -10,7 +10,7 @@ export enum POST_ENDPOINTS{
 }
 export enum TAG_ENDPOINTS{
     CREATE = "/tag/create",
-    GET_ALL="/tag?q=design",
+    GET_ALL="/tag/prompt/design",
     GET="/tag/id",
     UPDATE="/tag/id",
     DELETE="/tag/id"
