@@ -27,7 +27,7 @@ export default function SkillSelectionInput({onSelectedTags, onRemoveTag, tags}:
     return (
         <React.Fragment>
             <SelectionInput
-                label="Tags"
+                label=""
                 helperText="Choose tags (up to 5) so readers know what your blog is about "
                 selectedItems={tags}
                 onItemSelect={handleSelectedTag}

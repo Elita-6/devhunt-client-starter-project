@@ -26,6 +26,6 @@ export const Links = [
         href: "/dashboard/profiles",
         icon: <PersonIcon style={{ width: 22, height: 22 }} />,
         name: 'Profiles'
-    },
+    }
 ]
 

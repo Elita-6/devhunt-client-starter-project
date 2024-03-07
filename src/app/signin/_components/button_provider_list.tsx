@@ -6,7 +6,7 @@ import Image from "next/image";
 import {FaGithub} from "react-icons/fa6";
 
 const ButtonProviders = () => {
-    const callbackUrl = "/"
+    const callbackUrl = "/dashboard"
     return (
     <>
         <Button
