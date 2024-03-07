@@ -8,9 +8,9 @@ export const Links = [
         name: 'Dashboard'
     },
     {
-        href: "/dashboard/forum",
+        href: "/dashboard/discussions",
         icon: <QuestionMarkIcon style={{ width: 22, height: 22 }} />,
-        name: 'Forum'
+        name: 'Discussions'
     },
     {
         href: "/dashboard/ressources",

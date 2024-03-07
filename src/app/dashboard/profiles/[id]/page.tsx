@@ -1,9 +1,26 @@
+"use client"
 import {CustomAvatar} from "@/app/_common/components/avatar";
-import {Edit , Pencil} from "lucide-react";
-import {Button} from "@/components/ui/button";
-import {SkillsBox} from "@/app/dashboard/profiles/_components/skills_box";
-import {SkillsEdit} from "@/app/dashboard/profiles/_components/skills_edit";
+import {SkillsContainer} from "@/app/dashboard/profiles/_components/skills_wrapper";
+import {Button} from "@mui/base";
+import {Diamond , Github , Pencil} from "lucide-react";
+import {EditProfile} from "@/app/dashboard/profiles/_components/edit_profile";
+import {Box} from "@/app/dashboard/profiles/_components/box";
+import {SocialLInk} from "@/app/dashboard/profiles/_components/SocialLInk";
 
+export const  skills = [
+    {
+        skill_id: "reactjs",
+        skill_name: "reactjs"
+    },
+    {
+        skill_id: "reactjs",
+        skill_name: "reactjs"
+    },
+    {
+        skill_id: "reactjs",
+        skill_name: "reactjs"
+    }
+]
 export default function ProfileDetailPage({params}: {params: {id: string}}) {
     const user_id = params.id;
 
@@ -14,15 +31,14 @@ export default function ProfileDetailPage({params}: {params: {id: string}}) {
                 <div className="absolute -bottom-12 md:px-[5%] lg:px-[10%] ">
                     <div className="flex items-center gap-5">
                         <CustomAvatar image_url={""} username="Riry Nomena" style="h-32 w-32 border border-4" />
-                        <div className="flex flex-col justify-between ">
+                        <div className="flex flex-col justify-between ite ">
                             <span className="text-3xl text-white font-semibold mt-4 mb-8"> Riry Nomenjanahary</span>
-                            <div className=" flex justify-between items-center gap-5">
-                                <span>
-                                    L3 IG
-                                </span>
-                                <span>
-                                    WEBSITE
-                                </span>
+                            <div className=" flex  items-center gap-5">
+                                <Box
+                                    icon={<Diamond />}
+                                    label="L3 IG"
+                                />
+                                <SocialLInk icon={<Github />} name="Github" url="https://github.com" />
                             </div>
                         </div>
                     </div>
@@ -30,11 +46,9 @@ export default function ProfileDetailPage({params}: {params: {id: string}}) {
             </div>
             <div className="flex justify-end p-4 z-10">
                 {/*Edit button*/}
-                <Button className="flex gap-2 bg-blue-700">
-                    <Pencil />
-                    Edit profile
-                </Button>
+                 <EditProfile />
             </div>
+            <SkillsContainer skills={skills} />
 
 
         </div>
