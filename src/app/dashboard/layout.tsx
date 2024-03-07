@@ -11,6 +11,7 @@ export default function ExampleLayout({ children }: PropsWithChildren) {
             </aside>
             <div className=' flex-1 flex-col space-y-3'>
                 <DashboardNavBar/>
+                <BolidaLayer/>
                 {children}
             </div>
         </div>

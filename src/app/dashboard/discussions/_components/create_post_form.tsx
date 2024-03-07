@@ -51,12 +51,12 @@ const CreatePostForm = (props:Props) => {
             <div className="w-full">
                 <TagSelectionInput onSelectedTags={handleSelectTags} onRemoveTag={handleRemoveTag} tags={tags}/>
             </div>
-            <button type='submit' className='bg-[#0000FF] w-full text-white py-2'
+            <button type='submit' className='bg-[#0000FF] w-full text-white py-3'
                 disabled={isSubmitting ? true : false}
             >
                 Create post
             </button>
-            <button type='reset' onClick={props.HandleClick}  className='bg-[#F2F2F2] w-full text-[#0F172A] py-2'>
+            <button type='reset' onClick={props.HandleClick}  className='bg-[#F2F2F2] w-full text-[#0F172A] py-3'>
                 Cancel
             </button>
         </form>

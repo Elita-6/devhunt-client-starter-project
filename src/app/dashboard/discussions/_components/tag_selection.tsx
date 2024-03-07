@@ -34,7 +34,7 @@ export default function TagSelectionInput({onSelectedTags, onRemoveTag, tags}: {
     searchQuery={query}
     isLoading={isLoading}
     isSuccess={isSuccess}
-    searchResults={data?.data.result}
+    searchResults={data?.data}
     />
     </React.Fragment>
 )

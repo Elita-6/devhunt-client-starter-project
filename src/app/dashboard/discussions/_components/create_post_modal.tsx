@@ -7,7 +7,7 @@ interface Props{
 const CreatePostModal = (props :Props) => {
     return (
         <div className='overlay' onClick={props.HandleClick}>
-            <div className='central flex flex-col p-3' onClick={(e)=>e.stopPropagation()}>
+            <div className='central flex flex-col p-3 rounded-lg' onClick={(e)=>e.stopPropagation()}>
                 <div className='flex justify-end w-full '>
                     <button onClick={props.HandleClick} className="pr-2">
                         <MdOutlineClose className='text-xl'/>
