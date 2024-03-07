@@ -1,17 +1,11 @@
 import Image from "next/image";
 import ExampleComponent from "@/app/feat-exemple/_components/example_component";
 import HeroPage from "@/app/_common/components/nomena_hero_page";
-import Card from "@/app/_common/components/card";
 
 export default function Home() {
   return (
     <div className='flex-col items-center'>
       <HeroPage />
-      <div className='flex space-x-5 mx-10 justify-center items-center px-4'>
-        <Card />
-        <Card />
-        <Card />
-      </div>
     </div>
     // <main className="flex h-full flex-col items-center justify-between p-24">
     //   <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
