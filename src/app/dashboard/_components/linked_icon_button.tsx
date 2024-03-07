@@ -1,5 +1,4 @@
 'use client'
-import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -16,7 +15,7 @@ export const LinkedIconButton = (props: LinkedIconBtnProps) => {
     return (
 
         <Link href={href} className={`${pathname === href ? "" : ""} flex `}>
-            <span className="flex justify-start items-center gap-3 p-2 rounded-md text-black hover:bg-blue-50 cursor-pointer m-auto hover:text-[#0000FF] w-40">{icon}{name}</span>
+            <span className="flex justify-start items-center gap-3 p-2 rounded-md text-black hover:bg-[#e4e3fa] cursor-pointer m-auto hover:text-[#0000FF] w-40">{icon}{name}</span>
         </Link>
 
     );

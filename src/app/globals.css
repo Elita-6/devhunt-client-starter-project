@@ -75,7 +75,8 @@
     @apply bg-background text-foreground;
   }
 }
-.bolida-profile{
+
+.bolida-profile {
   background-image: url("../../public/bolida_bg.png");
   background-repeat: no-repeat;
   background-position: center;
