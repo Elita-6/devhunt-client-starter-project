@@ -4,5 +4,5 @@ export enum EXAMPLE_ENDPOINTS{
     GET="/example/:id",
     UPDATE="/example/:id",
     DELETE="/example/:id",
-    GET_ALL_SKILLS= "/technology?q=query"
+    GET_ALL_TECH= "/technology?q=query"
 }

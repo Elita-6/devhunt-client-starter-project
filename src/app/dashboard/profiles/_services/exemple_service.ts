@@ -11,13 +11,17 @@ class ProfileService{
     }
 
     public getAllSkillsByName(name: string){
-        return httpClient.get(EXAMPLE_ENDPOINTS.GET_ALL_SKILLS.replace('query',name));
+        return httpClient.get(EXAMPLE_ENDPOINTS.GET_ALL_TECH.replace('query',name));
     }
     public updateProfile(exampleToUpdate: IExampleDto,id:string){
         return httpClient.put(EXAMPLE_ENDPOINTS.UPDATE.replace("id",id),exampleToUpdate)
     }
     public deleteExampleByExampleId(exampleId: string){
         return httpClient.get(EXAMPLE_ENDPOINTS.DELETE.replace("id",exampleId))
+    }
+
+    public getAllTechnology() {
+        return httpClient.get(EXAMPLE_ENDPOINTS.GET_ALL_TECH)
     }
 }
 export const profileService = new ProfileService()
