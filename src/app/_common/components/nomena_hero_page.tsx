@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import {redirect} from "next/navigation";
 
 
 const HeroPage = () => {
@@ -15,7 +16,7 @@ const HeroPage = () => {
                         Dive deep in immersive, interactive small groups. Expand horizons, engage in discussions, and elevate your learning journey with us.
                     </p>
                 </div>
-                <Button  className='text-lg'>
+                <Button  className='text-lg' onClick={() => redirect('/dashboard/discussions')}>
                     Get started
                 </Button>
             </div>
