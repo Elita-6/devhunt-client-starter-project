@@ -16,7 +16,7 @@ export default function UserWrapper() {
     const handleSelectLevel = (level: string) => {
         setLevel(level)
     }
-    const handleSearch = (e) => {
+    const handleSearch = (e: { target: { value: any; }; }) => {
         console.log(e.target.value)
     }
     return(
@@ -25,7 +25,7 @@ export default function UserWrapper() {
                 <Input
                     type='search'
                     value={query}
-                    onKeyUp={handleSearch}
+                    onChange={handleSearch}
                     className="w-[24rem] bg-blue-50 h-14"
                     placeholder="Search by name .."
                 />
