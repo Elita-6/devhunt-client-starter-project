@@ -3,7 +3,7 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 class HttpClient {
     private client(): AxiosInstance {
         const axiosConfig: AxiosRequestConfig = {
-            baseURL: "http://192.168.43.197:8000/api"
+            baseURL: "http://192.168.62.197:8000/api"
         }
         let axiosInstance = axios.create(axiosConfig);
         const getAccessToken = () => {
@@ -13,7 +13,7 @@ class HttpClient {
             const accessToken = getAccessToken();
             console.log()
             if (accessToken) {
-                config.headers.Authorization = `Bearer ${accessToken.split('=')[1]}`;
+                config.headers.Authorization = `Bearer ${accessToken}`;
             }
             return config;
         }, (error) => {

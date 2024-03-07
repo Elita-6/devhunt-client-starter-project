@@ -1,5 +1,5 @@
 import SelectionInput from "./selection_input";
-import React , {useCallback , useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import {ITag} from "@/app/dashboard/discussions/_services/definition";
 import {useFetchAllTag} from "@/app/dashboard/discussions/_hooks/post_hooks";
 
@@ -7,7 +7,9 @@ import {useFetchAllTag} from "@/app/dashboard/discussions/_hooks/post_hooks";
 export default function CategorySelectionInput({onRemoveCategory,onSelectedCategory, category}: {onSelectedCategory: (item: ITag) => void , onRemoveCategory: (item: ITag) => void, category: ITag[]}) {
     const [query, setQuery] = useState<string>("");
     const {data, isLoading, isSuccess} = useFetchAllTag(query)
-
+    useEffect(() => {
+        console.log("test")
+    }, [isLoading,isSuccess]);
     const handleSelectedCategory = (selectedCategory: ITag) => {
         onSelectedCategory(selectedCategory)
         setQuery("")
@@ -31,7 +33,7 @@ export default function CategorySelectionInput({onRemoveCategory,onSelectedCateg
             searchQuery={query}
             isLoading={isLoading}
             isSuccess={isSuccess}
-            searchResults={data?.data.result}
+            searchResults={data?.data}
         />
     )
 }

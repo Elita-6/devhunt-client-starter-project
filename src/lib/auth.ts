@@ -49,7 +49,7 @@ export const handlers= NextAuth({
     },
     callbacks:{
         async signIn({ user, account, profile, email, credentials}){
-            const test = await axios.post("https://devhunt-starter-api-production.up.railway.app/api/utilisateur",{
+            const test = await axios.post("https://devhunt-starter-api-production.up.railway.app/api/user",{
                 firstName:user.name,
                 id:user.id,
                 email:user.email,
