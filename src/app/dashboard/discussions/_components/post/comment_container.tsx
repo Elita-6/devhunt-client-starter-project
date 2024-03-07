@@ -3,7 +3,6 @@ import React from 'react';
 import {IComment} from "@/app/dashboard/discussions/_services/definition";
 import CommentItems from "@/app/dashboard/discussions/_components/post/comment_items";
 import {Send} from "lucide-react";
-import {useCreateMessage} from "@/app/dashboard/(bolida)/_hooks/bolida_hooks";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useCreateComment} from "@/app/dashboard/discussions/_hooks/post_hooks";
 interface Props{
