@@ -1,5 +1,5 @@
 import {useMutation, useQuery, useQueryClient} from "react-query";
-import {IPostDto} from "@/app/dashboard/discussions/_services/definition";
+import {IPostDto, IReaction} from "@/app/dashboard/discussions/_services/definition";
 import {postService} from "@/app/dashboard/discussions/_services/post_service";
 
 export  const useCreatePost= ()=>{
@@ -35,11 +35,35 @@ export const useFetchAllTag =(query:string)=>{
         queryFn:()=> postService.getAllTags(query)
     })
 }
+export const useFetchReaction =(postId:string)=>{
+    return useQuery({
+        queryKey:['tags'],
+        queryFn:()=> postService.getReactionForPost(postId)
+    })
+}
+
+
+export const useFetchComment =(postId:string)=>{
+    return useQuery({
+        queryKey:['tags'],
+        queryFn:()=> postService.getCommentForPost(postId)
+    })
+}
 
 export const useUpdateExample=(updateId:string)=>{
     const queryClient = useQueryClient()
     return useMutation({
         mutationFn: (post: IPostDto ) => postService.updateExample(post,updateId),
+        onSuccess:async ()=>{
+            await queryClient.invalidateQueries(['example'])
+            await queryClient.resetQueries(['example'])
+        }
+    })
+}
+export const useReactionUpdate=()=>{
+    const queryClient = useQueryClient()
+    return useMutation({
+        mutationFn: (reaction:IReaction  ) => postService.reactPost(reaction),
         onSuccess:async ()=>{
             await queryClient.invalidateQueries(['example'])
             await queryClient.resetQueries(['example'])
