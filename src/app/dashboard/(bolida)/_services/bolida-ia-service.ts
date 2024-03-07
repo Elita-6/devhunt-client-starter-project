@@ -5,7 +5,7 @@ import { DISCUSSION_ENDPOINTS } from "./endpoint";
 
 class BolidaService{
     public createMessage(messageToCreate: string){
-        return httpClient.post(DISCUSSION_ENDPOINTS.CREATE,messageToCreate)
+        return httpClient.post(DISCUSSION_ENDPOINTS.CREATE,{prompt: messageToCreate})
     }
     public getExampleByExampleId(exampleId: string){
         return httpClient.get(DISCUSSION_ENDPOINTS.GET_ALL.replace("id",exampleId))

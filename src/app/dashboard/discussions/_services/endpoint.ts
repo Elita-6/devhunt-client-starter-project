@@ -6,7 +6,8 @@ export enum POST_ENDPOINTS{
     DELETE="/post/id",
     REACTION="/reaction",
     GET_REACTION_BY_POST_ID="/reaction/id",
-    GET_COMMENT_BY_POST_ID="/comment/id"
+    GET_COMMENT_BY_POST_ID="/comment/id",
+    COMMENT_POST="/comment/postId"
 }
 export enum TAG_ENDPOINTS{
     CREATE = "/tag/create",

@@ -43,7 +43,7 @@ const posts: IPost[] = [
 const PostContainer = () => {
     const{}= useFetchAllPost()
     return (
-        <div>
+        <div className="px-8">
             {
                 posts.map((elem,key)=>(
                     <PostItem key={key} postId={elem.postId} postDescription={elem.postDescription} postTitle={elem.postTitle} dateCreation={elem.dateCreation} user={elem.user} tags={elem.tags} comments={elem.comments} reaction={elem.reaction}/>

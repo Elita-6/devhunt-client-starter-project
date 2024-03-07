@@ -1,10 +1,13 @@
 import {httpClient} from "@/lib/axios";
 import {POST_ENDPOINTS, TAG_ENDPOINTS} from "@/app/dashboard/discussions/_services/endpoint";
-import {IPostDto, IReaction} from "@/app/dashboard/discussions/_services/definition";
+import {ICommentDto, IPostDto, IReaction} from "@/app/dashboard/discussions/_services/definition";
 
 class PostService{
     public createPost(post: IPostDto){
         return httpClient.post(POST_ENDPOINTS.CREATE,post)
+    }
+    public createCommentForPost(comment:ICommentDto){
+        return httpClient.post(POST_ENDPOINTS.COMMENT_POST,comment)
     }
     public getExampleByExampleId(postId: string){
         return httpClient.get(POST_ENDPOINTS.GET.replace("id",postId))
