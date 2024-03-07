@@ -12,8 +12,8 @@ const posts: IPost[] = [
         dateCreation: "2024-03-06",
         user: {
             userId: "1",
-            userName: "John Doe",
-            profileUrl: "https://example.com/profile"
+            userName: "Riry Nomenjanahary",
+            profileUrl: "https://avatars.githubusercontent.com/u/105585077?v=4"
         },
         tags: ["tag1", "tag2"],
         comments: [
@@ -21,8 +21,8 @@ const posts: IPost[] = [
                 content: "Great post!",
                 user: {
                     userId: "2",
-                    userName: "Jane Smith",
-                    profileUrl: "https://example.com/profile"
+                    userName: "Nomena Andrianiana",
+                    profileUrl: "https://avatars.githubusercontent.com/u/107101235?v="
                 },
                 dateComment: "2024-03-06"
             },
@@ -30,8 +30,8 @@ const posts: IPost[] = [
                 content: "I agree!",
                 user: {
                     userId: "3",
-                    userName: "Alice Johnson",
-                    profileUrl: "https://example.com/profile"
+                    userName: "Nomena Andrianiana",
+                    profileUrl: "https://avatars.githubusercontent.com/u/107101235?v="
                 },
                 dateComment: "2024-03-06"
             }
