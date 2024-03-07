@@ -6,9 +6,9 @@ interface Props{
 }
 const BolidaDiscuBar = (props:Props) => {
     return (
-        <div className="relative">
-            <div className="absolute inset-x-0 top-0 z-10">
-                <div className="fixed w-[30vw] flex justify-between items-center">
+        <div className="relative bg-white">
+            <div className="absolute inset-x-0 top-0 z-10 bg-white">
+                <div className="fixed w-[30vw] flex justify-between bg-white py-2 items-center">
                     <div className="flex justify-between items-center space-x-4">
                         <button onClick={props.HandleCLickBolidaButton}>
                             <ChevronLeft size={35}/>
