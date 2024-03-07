@@ -14,8 +14,13 @@ export const LinkedIconButton = (props: LinkedIconBtnProps) => {
 
     return (
 
-        <Link href={href} className={`${pathname === href ? "" : ""} flex `}>
-            <span className="flex justify-start items-center gap-3 p-2 rounded-md text-black hover:bg-[#e4e3fa] cursor-pointer m-auto hover:text-[#0000FF] w-40">{icon}{name}</span>
+        <Link href={href} className={`${pathname === href ? "" : ""} flex w-full justify-start  gap-3 p-4 text-black hover:bg-blue-50 cursor-pointer  hover:text-[#0000FF] rounded-lg `}>
+            <span className="">
+                {icon}
+            </span>
+            <span>
+                {name}
+            </span>
         </Link>
 
     );

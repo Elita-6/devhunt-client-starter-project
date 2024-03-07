@@ -25,8 +25,9 @@ const BolidaForm = () => {
         }
     }
     return (
-            <div className="absolute inset-x-0 bottom-0 z-10  px-4 py-3 w-[30vw]">
-                <form onSubmit={handleSubmit(onSubmit)} className="flex justify-between space-x-6">
+        <div className="relative">
+            <div className="absolute bottom-0 left-0 right-0 z-10">
+                <form onSubmit={handleSubmit(onSubmit)} className="flex justify-between space-x-6 px-4 py-3 w-[30vw] h-[8vh]">
                     <input type='text'  placeholder='Type your message here '
                            className='outline-none p-2 input bg-[#E8F4FC] w-[25vw]' {...register("message",{required:true})} />
                     <button type="submit" className="bg-[#0000FF] p-2 rounded-lg">
@@ -34,6 +35,7 @@ const BolidaForm = () => {
                     </button>
                 </form>
             </div>
+        </div>
     );
 };
 
