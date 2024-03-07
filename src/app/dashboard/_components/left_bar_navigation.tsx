@@ -8,7 +8,6 @@ export const LeftBarNavigation = () => {
     const [darkMode, setDarkMode] = useState(false);
 
     return (
-<<<<<<< HEAD
         <div className={`flex flex-col items-center bg-[#FBF9F9] dark:bg-gray-950 dak border-r-2 border-gray-300 h-screen border-opacity-50 pt-16 space-y-2.5 w-60 ${darkMode ? 'dark' : ''}`}>
             <div className="flex flex-col flex-grow">
                 {
@@ -21,14 +20,6 @@ export const LeftBarNavigation = () => {
                 <ThemeToggle darkMode={darkMode} setDarkMode={setDarkMode} />
                 {darkMode ? <p className="ml-[10px] leading-none">Dark mode</p> : <p className="ml-[10px] leading-none">Light mode</p>}
             </div>
-=======
-        <div className="w-full  flex flex-col items-center bg-[#FBF9F9] px-2 border-r-1 border-gray-200  border-opacity-50 pt-16 space-y-2.5">
-            {
-                Links.map((link, index) => (
-                    <LinkedIconButton href={link.href} icon={link.icon} key={index} name={link.name} />
-                ))
-            }
->>>>>>> bb591006f723e89b84bbea1ea6b5447a46281161
         </div>
     )
 }
