@@ -3,8 +3,8 @@ import Image from "next/image";
 
 const Card = () => {
     return (
-        <div className='flex  space-x-3 bg-black px-4 py-7  text-white rounded-lg'>
-            <Image src='/people.png' alt='people icon' width={24} height={24}/>
+        <div className='flex  space-x-3 bg-black px-4 py-7 my-10 text-white rounded-lg'>
+            <Image src='/people.png' alt='people icon' width={24} height={24} />
             <div className='flex flex-col space-y-2'>
                 <h5 className='text-2xl font-semibold '>
                     Explore topics
