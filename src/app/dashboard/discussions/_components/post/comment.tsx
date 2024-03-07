@@ -30,7 +30,7 @@ const Comment = ({postId,HandleClick,isReply,comment}:{postId:string,HandleClick
         <>
             {
                 isReply && (
-                    <CommentContainer comments={comments} HandleClick={HandleClick}/>
+                    <CommentContainer comments={comments} postId={postId}HandleClick={HandleClick}/>
                 )
             }
             <button onClick={HandleClick} className="flex space-x-3 items-center">

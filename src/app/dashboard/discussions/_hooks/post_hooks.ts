@@ -1,5 +1,5 @@
 import {useMutation, useQuery, useQueryClient} from "react-query";
-import {IPostDto, IReaction} from "@/app/dashboard/discussions/_services/definition";
+import {ICommentDto, IPostDto, IReaction} from "@/app/dashboard/discussions/_services/definition";
 import {postService} from "@/app/dashboard/discussions/_services/post_service";
 
 export  const useCreatePost= ()=>{
@@ -9,15 +9,30 @@ export  const useCreatePost= ()=>{
             mutationKey:['create','post'],
             mutationFn: (post:IPostDto)=> postService.createPost(post),
             onSuccess: async ()=>{
-                await queryClient.resetQueries(['example'])
-                await queryClient.invalidateQueries(['example'])
+                await queryClient.resetQueries(['posts'])
+                await queryClient.invalidateQueries(['posts'])
             }
         }
     )
 }
+
+export  const useCreateComment= ()=>{
+    const queryClient = useQueryClient()
+    return useMutation(
+        {
+            mutationKey:['create','comment'],
+            mutationFn: (comment:ICommentDto)=> postService.createCommentForPost(comment),
+            onSuccess: async ()=>{
+                await queryClient.resetQueries(['comments'])
+                await queryClient.invalidateQueries(['comments'])
+            }
+        }
+    )
+}
+
 export const useFetchPostById = (exampleId:string) =>{
     return useQuery({
-        queryKey:['example'],
+        queryKey:['post'],
         queryFn:()=> postService.getExampleByExampleId(exampleId)
     })
 }
@@ -37,7 +52,7 @@ export const useFetchAllTag =(query:string)=>{
 }
 export const useFetchReaction =(postId:string)=>{
     return useQuery({
-        queryKey:['tags'],
+        queryKey:['reaction'],
         queryFn:()=> postService.getReactionForPost(postId)
     })
 }
@@ -45,7 +60,7 @@ export const useFetchReaction =(postId:string)=>{
 
 export const useFetchComment =(postId:string)=>{
     return useQuery({
-        queryKey:['tags'],
+        queryKey:['comments'],
         queryFn:()=> postService.getCommentForPost(postId)
     })
 }

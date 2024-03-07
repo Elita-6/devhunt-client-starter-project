@@ -6,6 +6,7 @@ import {useSession} from "next-auth/react";
 import BolidaForm from "@/app/dashboard/(bolida)/_components/form_bolida";
 import {IMessage} from "@/app/dashboard/(bolida)/_services/definition";
 import Message from "@/app/dashboard/(bolida)/_components/message";
+import {useFetchAllMessage} from "@/app/dashboard/(bolida)/_hooks/bolida_hooks";
 interface Props{
     HandleCLickBolidaButton:()=>void
 }
@@ -39,8 +40,9 @@ const messages: IMessage[] = [
 
 const BolidaDiscuContainer = (props:Props) => {
     const session = useSession();
+    const{data,isLoading,isSuccess}=useFetchAllMessage()
     return (
-        <div className="fixed right-20  pt-4 bottom-20 shadow-md h-[65vh] w-[30vw] overflow-y-scroll">
+        <div className="fixed right-20  pt-4 bottom-20 bg-white shadow-md  z-40 h-[70vh] w-[30vw] overflow-y-scroll">
             <BolidaDiscuBar HandleCLickBolidaButton={props.HandleCLickBolidaButton}/>
             <div className="w-full flex flex-col justify-center items-center">
                 <div className="bolida-profile mt-[8vh]   flex justify-center items-center">

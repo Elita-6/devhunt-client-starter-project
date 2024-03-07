@@ -3,7 +3,7 @@ import axios, { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
 class HttpClient {
     private client(): AxiosInstance {
         const axiosConfig: AxiosRequestConfig = {
-            baseURL: "http://192.168.62.197:8000/api"
+            baseURL: "https://devhunt-starter-api-production.up.railway.app/api"
         }
         let axiosInstance = axios.create(axiosConfig);
         const getAccessToken = () => {

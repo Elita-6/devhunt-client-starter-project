@@ -1,27 +1,33 @@
 import {httpClient} from "@/lib/axios";
 import {IExampleDto} from "@/app/feat-exemple/_services/definition";
-import {EXAMPLE_ENDPOINTS} from "@/app/feat-exemple/_services/endpoint";
+import {PROFILE_ENDPOINTS} from "@/app/dashboard/profiles/_services/endpoint";
+
 
 class ProfileService{
     public createProfile(exampleToCreate: IExampleDto){
-        return httpClient.post(EXAMPLE_ENDPOINTS.CREATE,exampleToCreate)
+        return httpClient.post(PROFILE_ENDPOINTS.CREATE,exampleToCreate)
+    }
+
+    public getUsers(){
+        return httpClient.get(PROFILE_ENDPOINTS.GET)
     }
     public getProfileId(exampleId: string){
-        return httpClient.get(EXAMPLE_ENDPOINTS.GET.replace("id",exampleId))
+
+        return httpClient.get(PROFILE_ENDPOINTS.GET_USER_PROFILE.replace("id",exampleId))
     }
 
     public getAllSkillsByName(name: string){
-        return httpClient.get(EXAMPLE_ENDPOINTS.GET_ALL_TECH.replace('query',name));
+        return httpClient.get(PROFILE_ENDPOINTS.GET_ALL_TECH.replace('query',name));
     }
     public updateProfile(exampleToUpdate: IExampleDto,id:string){
-        return httpClient.put(EXAMPLE_ENDPOINTS.UPDATE.replace("id",id),exampleToUpdate)
+        return httpClient.put(PROFILE_ENDPOINTS.UPDATE.replace("id",id),exampleToUpdate)
     }
     public deleteExampleByExampleId(exampleId: string){
-        return httpClient.get(EXAMPLE_ENDPOINTS.DELETE.replace("id",exampleId))
+        return httpClient.get(PROFILE_ENDPOINTS.DELETE.replace("id",exampleId))
     }
 
     public getAllTechnology() {
-        return httpClient.get(EXAMPLE_ENDPOINTS.GET_ALL_TECH)
+        return httpClient.get(PROFILE_ENDPOINTS.GET_ALL_TECH)
     }
 }
 export const profileService = new ProfileService()

@@ -31,3 +31,7 @@ export interface IReaction{
     userId:string
     postId:string
 }
+export  interface ICommentDto{
+    content:string,
+    postId:string
+}
