@@ -18,9 +18,6 @@ const config = {
       },
     },
     extend: {
-      backgroundImage: {
-        'banner-profile': "url('/assets/banner-profile.svg/')"
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

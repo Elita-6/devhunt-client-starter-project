@@ -1,7 +1,6 @@
 "use client"
 import UserCard from "@/app/dashboard/profiles/_components/user_card";
 import React , {useState} from "react";
-import {useFetchUser} from "@/app/dashboard/profiles/_hooks/profile_hook";
 import {
     NavigationMenu , NavigationMenuContent ,
     NavigationMenuItem , NavigationMenuLink ,
@@ -30,7 +29,7 @@ export default function UserWrapper() {
                     className="w-[24rem] bg-blue-50 h-14"
                     placeholder="Search by name .."
                 />
-                <div className="flex justify-end">
+                <div className="flex justify-end mr-12">
                     <NavigationMenu>
                         <NavigationMenuList>
                             <NavigationMenuItem>
