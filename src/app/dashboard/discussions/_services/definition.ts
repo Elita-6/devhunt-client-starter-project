@@ -1,7 +1,7 @@
 export interface IPostDto{
-    title: string
-    description:string
-    tag:string[]
+    postTitle: string
+    postDescription:string
+    tags:string[]
 }
 export interface ITag{
     tagDesign:string,
