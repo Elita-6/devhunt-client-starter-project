@@ -1,3 +1,4 @@
+
 "use client"
 import {CustomAvatar} from "@/app/_common/components/avatar";
 import {SkillsContainer} from "@/app/dashboard/profiles/_components/skills_wrapper";
@@ -6,24 +7,30 @@ import {Diamond , Github , Pencil} from "lucide-react";
 import {EditProfile} from "@/app/dashboard/profiles/_components/edit_profile";
 import {Box} from "@/app/dashboard/profiles/_components/box";
 import {SocialLInk} from "@/app/dashboard/profiles/_components/SocialLInk";
+import {useFetchAllTech} from "@/app/dashboard/profiles/_hooks/profile_hook";
+import {ProjectWrapper} from "@/app/dashboard/profiles/_components/project/project_wrapper";
 
-export const  skills = [
-    {
-        skill_id: "reactjs",
-        skill_name: "reactjs"
-    },
-    {
-        skill_id: "reactjs",
-        skill_name: "reactjs"
-    },
-    {
-        skill_id: "reactjs",
-        skill_name: "reactjs"
-    }
-]
+
+
 export default function ProfileDetailPage({params}: {params: {id: string}}) {
-    const user_id = params.id;
+    const  skills = [
+        {
+            skill_id: "reactjs",
+            skill_name: "reactjs"
+        },
+        {
+            skill_id: "reactjs",
+            skill_name: "reactjs"
+        },
+        {
+            skill_id: "reactjs",
+            skill_name: "reactjs"
+        }
+    ]
 
+    const user_id = params.id;
+    const {data} = useFetchAllTech();
+    console.log(data)
     return(
         <div className="w-full h-full px-24">
             <div className="bg-gradient-to-br from-[#761ABE] to-[#4E246E] h-[12rem] relative rounded-lg">
@@ -49,7 +56,7 @@ export default function ProfileDetailPage({params}: {params: {id: string}}) {
                  <EditProfile />
             </div>
             <SkillsContainer skills={skills} />
-
+            <ProjectWrapper  />
 
         </div>
     )

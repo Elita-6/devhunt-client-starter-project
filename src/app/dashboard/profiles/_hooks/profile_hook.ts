@@ -16,10 +16,10 @@ export  const useCreateExample= ()=>{
         }
     )
 }
-export const useFetchExampleById = (exampleId:string) =>{
+export const useFetchAllTech = () =>{
     return useQuery({
-        queryKey:['example'],
-        queryFn:()=> {}
+        queryKey:['tech'],
+        queryFn:()=> profileService.getAllTechnology()
     })
 }
 
