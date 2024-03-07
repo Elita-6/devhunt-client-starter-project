@@ -23,7 +23,7 @@ export const useFetchExampleById = (exampleId:string) =>{
     })
 }
 
-export const useFetchAllExample =()=>{
+export const useFetchAllMessage =()=>{
     return useQuery({
         queryKey:['messages'],
         queryFn:()=> bolidaService.getAllMessage()

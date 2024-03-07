@@ -1,16 +1,12 @@
 import React from 'react';
 import {useCreateMessage} from "@/app/dashboard/(bolida)/_hooks/bolida_hooks";
 import {SubmitHandler, useForm} from "react-hook-form";
-import { NextApiRequest } from "next";
 import {Send} from "lucide-react";
 
 interface IFormInput{
     message:string
 }
 const BolidaForm = () => {
-    const getAccessToken = (req: NextApiRequest) => {
-        return req.cookies.token;
-    };
     const {isSuccess,isLoading,mutate} = useCreateMessage()
     const {
         register,
@@ -21,7 +17,7 @@ const BolidaForm = () => {
         mutate(data.message)
         console.log("test")
         if (isSuccess){
-            console.log("success")
+            console.log(data.message)
         }
     }
     return (
