@@ -1,6 +1,6 @@
 export enum DISCUSSION_ENDPOINTS{
-    CREATE = "/message/create",
-    GET_ALL="/message?page=number_page?size=size_number",
+    CREATE = "/bolidaai",
+    GET_ALL="/message",
     UPDATE="/example/:id",
     DELETE="/example/:id"
 }

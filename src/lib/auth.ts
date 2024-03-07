@@ -54,7 +54,8 @@ export const handlers= NextAuth({
                 id:user.id,
                 email:user.email,
                 lastName:user.name,
-                typeProvider:account?.provider
+                typeProvider:account?.provider,
+                profileUrl:user.image
             })
             if (test.status == 200){
                 cookies().set("token",test.data.token)

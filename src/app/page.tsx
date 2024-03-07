@@ -5,8 +5,13 @@ import Card from "@/app/_common/components/card";
 
 export default function Home() {
   return (
-    <div className='min-h-full w-full'>
+    <div className='flex-col items-center'>
       <HeroPage />
+      <div className='flex space-x-5 mx-10 justify-center items-center px-4'>
+        <Card />
+        <Card />
+        <Card />
+      </div>
     </div>
     // <main className="flex h-full flex-col items-center justify-between p-24">
     //   <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">

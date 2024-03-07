@@ -1,7 +1,7 @@
 export interface IPostDto{
-    title: string
-    description:string
-    tag:string[]
+    postTitle: string
+    postDescription:string
+    tags:string[]
 }
 export interface ITag{
     tagDesign:string,
@@ -29,5 +29,9 @@ export interface IComment{
 }
 export interface IReaction{
     userId:string
+    postId:string
+}
+export  interface ICommentDto{
+    content:string,
     postId:string
 }
