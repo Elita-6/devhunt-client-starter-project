@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  .theme-custom {
+  :root {
     --gradient: #0000ff;
 
     --background: 255 65% 4%;
