@@ -18,9 +18,6 @@ const config = {
       },
     },
     extend: {
-      backgroundImage: {
-        'banner-profile': "url('/assets/banner-profile.svg/')"
-      },
       colors: {
         dark: '#232A3C',
         medium: '#293245',
