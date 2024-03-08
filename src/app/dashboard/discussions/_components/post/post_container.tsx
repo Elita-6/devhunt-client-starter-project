@@ -3,6 +3,7 @@ import React from 'react';
 import {useFetchAllPost} from "@/app/dashboard/discussions/_hooks/post_hooks";
 import {IPost} from "@/app/dashboard/discussions/_services/definition";
 import PostItem from "@/app/dashboard/discussions/_components/post/post_item";
+import PostSkeleton from "@/app/dashboard/discussions/_components/post/post_skeleton";
 
 const PostContainer = () => {
     const{data,isSuccess,isLoading}= useFetchAllPost()
@@ -13,7 +14,10 @@ const PostContainer = () => {
         <div className="px-8 w-full" >
             {
                 isLoading && (
-                    <p>Loading to fetch all topic ...</p>
+                    <div className="space-y-6">
+                        <PostSkeleton/>
+                        <PostSkeleton/>
+                    </div>
                 )
             }
             {
