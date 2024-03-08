@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import {IComment} from "@/app/dashboard/discussions/_services/definition";
 import CommentItems from "@/app/dashboard/discussions/_components/post/comment_items";
 import {Send} from "lucide-react";
@@ -14,12 +14,16 @@ interface IFormInput{
 }
 const CommentContainer = (props:Props) => {
     const {data,isSuccess:success}= useFetchComment(props.postId)
+    const scrollref = useRef<HTMLDivElement | null>(null)
     const {isSuccess,isLoading,mutate} = useCreateComment(props.postId)
     const {
         register,
         handleSubmit,
         formState:{errors,isSubmitting}
     } = useForm<IFormInput>()
+    useEffect(()=>{
+        scrollref.current?.scrollIntoView({behavior: "smooth"})
+    },[data])
     const onSubmit:SubmitHandler<IFormInput> = async (data)=>{
         mutate({
             content:data.comment,
@@ -38,13 +42,20 @@ const CommentContainer = (props:Props) => {
         <div className="overlay" onClick={props.HandleClick}>
             <div className='central'>
                 <div className="relative h-[35vh] overflow-y-scroll" onClick={(e) => e.stopPropagation()}>
-                    {isLoading && <p>Load comments...</p>}
-                    {data?.data.length === 0 && <p>reply to this topic</p>}
-                    {data?.data.map((elem: IComment, key: number) => (
-                        <CommentItems key={key} content={elem.comment.content} user={elem.user} created_at={elem.comment.created_at} />
-                    ))}
-                    <div className='mt-[8vh] h-[8vh] w-full'/>
-                    <form onSubmit={handleSubmit(onSubmit)} className="absolute bottom-0 left-0 right-0 px-4 pt-3 flex justify-between space-x-6">
+                            {isLoading && <p>Load comments...</p>}
+                    {
+                        data != undefined && (
+                        <>
+                            {data?.data.length === 0 && <p>reply to this topic</p>}
+                            {data?.data.map((elem: IComment, key: number) => (
+                                <CommentItems key={key} content={elem.comment.content} user={elem.user} created_at={elem.comment.created_at} />
+                            ))}
+                        </>
+
+                        )
+                    }
+                    <div className='mt-[8vh] w-full' ref={scrollref}/>
+                    <form onSubmit={handleSubmit(onSubmit)}  className=" bottom-4 left-0 right-0 px-4 pt-3 flex justify-between space-x-6">
                         <input type="text" placeholder="Type your message here" className="outline-none p-2 input bg-[#E8F4FC] w-[25vw]" {...register("comment", { required: true })} />
                         <button type="submit" className="bg-[#0000FF] p-2 rounded-lg">
                             <Send className="text-white" />

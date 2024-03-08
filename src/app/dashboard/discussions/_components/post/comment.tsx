@@ -6,7 +6,6 @@ import CommentContainer from "@/app/dashboard/discussions/_components/post/comme
 
 
 const Comment = ({postId,HandleClick,isReply,comment}:{postId:string,HandleClick:()=>void,isReply:boolean,comment:number}) => {
-    const {data,isLoading}= useFetchComment(postId)
     return (
         <>
             {
