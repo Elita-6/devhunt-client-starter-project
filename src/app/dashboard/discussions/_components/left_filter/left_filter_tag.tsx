@@ -20,7 +20,7 @@ const LeftFilterTag = () => {
             <div className="grid grid-cols-2 gap-3 ">
                 {
                     data?.data.map((elem:ITag,key:number)=>(
-                        <button key={key}  className="bg-[#CBD5E1] rounded-xl text-sm py-2 px-4">
+                        <button key={key}  className="bg-[#CBD5E1] rounded-xl text-sm py-2 px-4 dark:text-[#444]">
                             {elem.tagDesign}
                         </button>
                     ))
