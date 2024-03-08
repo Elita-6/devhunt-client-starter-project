@@ -5,7 +5,7 @@ const CommentSkeleton = () => {
     return (
         <div  className="flex justify-between items-center dark:text-[#444] pr-3">
             <div className=" p-3 flex items-center space-x-2">
-                <Skeleton className="h-12 w-24 rounded-full" />
+                <Skeleton className="h-12 w-24 rounded-full"  />
                 <div className="flex flex-col space-y-1">
                     <Skeleton className="h-[3vh] w-[4vw]"/>
                     <Skeleton className="h-[3vh] w-[3vw]"/>
