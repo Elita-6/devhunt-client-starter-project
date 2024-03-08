@@ -1,6 +1,5 @@
 import {useMutation, useQuery, useQueryClient} from "react-query";
-import {IExampleDto} from "@/app/feat-exemple/_services/definition";
-import {profileService} from "@/app/dashboard/profiles/_services/exemple_service";
+import {profileService} from "@/app/dashboard/profiles/_services/profile_service";
 
 
 export  const useCreateExample= ()=>{
@@ -8,7 +7,7 @@ export  const useCreateExample= ()=>{
     return useMutation(
         {
             mutationKey:['example'],
-            mutationFn: (exampleToCreate:IExampleDto)=> profileService.createProfile(exampleToCreate),
+            //mutationFn: (exampleToCreate:IExampleDto)=> profileService.createProfile(exampleToCreate),
             onSuccess: async ()=>{
                 await queryClient.resetQueries(['example'])
                 await queryClient.invalidateQueries(['example'])
@@ -19,14 +18,14 @@ export  const useCreateExample= ()=>{
 export const useFetchAllTech = () =>{
     return useQuery({
         queryKey:['tech'],
-        queryFn:()=> profileService.getAllTechnology()
+        //queryFn:()=> profileService.getAllTechnology()
     })
 }
 
 export const useFetchAllSkill =(name: string)=>{
     return useQuery({
         queryKey:['skills'],
-        queryFn:()=> profileService.getAllSkillsByName(name)
+        //queryFn:()=> profileService.getAllSkillsByName(name)
     })
 }
 export const useUpdateExample=(updateId:string)=>{

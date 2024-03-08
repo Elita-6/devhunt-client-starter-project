@@ -10,6 +10,7 @@ const comments= [
         user: {
             userId: "2",
             userName: "Jane Smith",
+            firstName: "Alice Johnson",
             profileUrl: "https://example.com/profile"
         },
         dateComment: "2024-03-06"
@@ -19,13 +20,14 @@ const comments= [
         user: {
             userId: "3",
             userName: "Alice Johnson",
+            firstName: "Alice Johnson",
             profileUrl: "https://example.com/profile"
         },
         dateComment: "2024-03-06"
     }
 ]
 const Comment = ({postId,HandleClick,isReply,comment}:{postId:string,HandleClick:()=>void,isReply:boolean,comment:number}) => {
-    const {}= useFetchComment(postId)
+    const {data,isLoading}= useFetchComment(postId)
     return (
         <>
             {

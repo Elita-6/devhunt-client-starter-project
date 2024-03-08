@@ -8,22 +8,32 @@ import Reaction from "@/app/dashboard/discussions/_components/post/reaction";
 import Comment from "@/app/dashboard/discussions/_components/post/comment";
 import CommentContainer from "@/app/dashboard/discussions/_components/post/comment_container";
 
-const PostItem = (props:IPost) => {
+const PostItem = (props:Partial<IPost>) => {
     const[isReply,setIsReply] = useState(false)
     const HandleClickReply = ()=>{
         setIsReply(ancien=>!ancien)
     }
-    const date = new Date(props.dateCreation);
+    const date = new Date(props.dateCreation!);
     return (
         <>
-            <div className="flex space-x-3">
+            <div className="flex space-x-3 w-full mt-5">
                 <div className="flex flex-col justify-start">
-                    <CustomAvatar image_url={props.user.profileUrl} style="w-[3vw] h-[6vh]"/>
+                    <CustomAvatar image_url={props.user?.profileUrl!} style="w-[3vw] h-[6vh]"/>
                 </div>
-                <div className="flex flex-col mt-2 space-y-3">
-                    <div className="flex space-x-3">
+                <div className="flex flex-col mt-2 space-y-3 w-full">
+                    <div className="flex space-x-3 w-full">
                         <h4 className="font-semibold">
-                            {props.user.userName}
+                            {
+                                props.user?.userName! == null ?(
+                                    <>
+                                        {props.user?.firstName!}
+                                    </>
+                                    ):(
+                                        <>
+                                        {props.user?.userName!}
+                                        </>
+                                )
+                            }
                         </h4>
                         <p className="text-[#837676] ">
                             {
@@ -44,8 +54,14 @@ const PostItem = (props:IPost) => {
                     </p>
                     <div className="flex w-full justify-between">
                         <div className="flex items-center space-x-12">
-                            <Reaction postId={props.postId} reaction={props.reaction.length}/>
-                            <Comment postId={props.postId} comment={props.comments.length} isReply={isReply} HandleClick={HandleClickReply}/>
+                            {
+                                props.reaction ? (
+                                    <Reaction postId={props.postId!} reaction={props.reaction?.length!}/>
+                                ):(
+                                    <Reaction postId={props.postId!} reaction={10}/>
+                                )
+                            }
+                            <Comment postId={props.postId!} comment={props.comments?.length!} isReply={isReply} HandleClick={HandleClickReply}/>
                         </div>
                         <button onClick={HandleClickReply}  className=" flex space-x-1 bg-[#ECEAEA] rounded-full px-3 py-2">
                             <Reply className="w-5 h-5" />

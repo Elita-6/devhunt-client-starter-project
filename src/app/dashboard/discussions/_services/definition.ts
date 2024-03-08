@@ -20,6 +20,7 @@ export interface IPost{
 interface  IUser{
     userId:string
     userName:string
+    firstName:string
     profileUrl:string
 }
 export interface IComment{

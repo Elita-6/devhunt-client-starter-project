@@ -41,13 +41,20 @@ const posts: IPost[] = [
 ];
 
 const PostContainer = () => {
-    const{data,isLoading}= useFetchAllPost()
-
+    const{data,isSuccess,isLoading}= useFetchAllPost()
+    if(isSuccess){
+        console.log(data)
+    }
     return (
-        <div className="px-8">
+        <div className="px-8 w-full" >
             {
-                posts.map((elem,key)=>(
-                    <PostItem key={key} postId={elem.postId} postDescription={elem.postDescription} postTitle={elem.postTitle} dateCreation={elem.dateCreation} user={elem.user} tags={elem.tags} comments={elem.comments} reaction={elem.reaction}/>
+                isLoading && (
+                    <p>Loading to fetch all topic ...</p>
+                )
+            }
+            {
+                data?.data.map((elem:IPost,key:number)=>(
+                    <PostItem key={key} postId={elem.postId} postDescription={elem.postDescription}  dateCreation={elem.dateCreation} user={elem.user} tags={elem.tags} comments={elem.comments} reaction={elem.reaction}/>
                 ))
             }
         </div>

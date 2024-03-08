@@ -19,6 +19,9 @@ class PostService{
     public getAllTags(query:string){
         return httpClient.get(TAG_ENDPOINTS.GET_ALL.replace("design",query))
     }
+    public getPopularTags(){
+        return httpClient.get(TAG_ENDPOINTS.GET_TAG_POPULAR)
+    }
     public updateExample(exampleToUpdate: IPostDto,id:string){
         return httpClient.put(POST_ENDPOINTS.UPDATE.replace("id",id),exampleToUpdate)
     }

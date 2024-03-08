@@ -50,6 +50,12 @@ export const useFetchAllTag =(query:string)=>{
         queryFn:()=> postService.getAllTags(query)
     })
 }
+export const useFetchPopularTag =()=>{
+    return useQuery({
+        queryKey:['tags','popular'],
+        queryFn:()=> postService.getPopularTags()
+    })
+}
 export const useFetchReaction =(postId:string)=>{
     return useQuery({
         queryKey:['reaction'],

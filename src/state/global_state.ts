@@ -2,14 +2,16 @@ import {create,  StoreApi, UseBoundStore} from 'zustand'
 
 
 type State = {
-    design:string
-    numApp:string
-    rent:number
+    profileUrl:string
+    firstName:string
+    lastName:number
+    username:string
 }
 type Action = {
-    updateDesign:(workspaceTitle: State['design'])=>void
-    updateNumApp:(taskDetails: State['numApp'])=>void
-    updateRent:(taskDetails: State['rent'])=>void
+    updateProfileUrl:(profileUrl: State['profileUrl'])=>void
+    updateFirstname:(firstName: State['firstName'])=>void
+    updateLastname:(firstName: State['lastName'])=>void
+    updateUsername:(lastname: State['username'])=>void
 }
 
 type WithSelectors<S> = S extends { getState: () => infer T }
@@ -27,10 +29,12 @@ const createSelectors = <S extends UseBoundStore<StoreApi<object>>>(
     return store
 }
 export const useApartmentDetails = createSelectors(create<State & Action>((set) => ({
-    design:'',
-    rent:0,
-    numApp:'',
-    updateDesign:(design)=> set(()=>({design: design})),
-    updateRent:(rent)=> set(()=>({rent: rent})),
-    updateNumApp:(numApp)=> set(()=>({numApp: numApp}))
+    profileUrl:'',
+    lastName:0,
+    firstName:'',
+    username:'',
+    updateProfileUrl:(profileUrl)=> set(()=>({profileUrl: profileUrl})),
+    updateLastname:(lastName)=> set(()=>({lastName: lastName})),
+    updateFirstname:(firstName)=> set(()=>({firstName: firstName})),
+    updateUsername:(username)=> set(()=>({username: username})),
 })))

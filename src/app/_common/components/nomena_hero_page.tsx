@@ -1,9 +1,15 @@
+"use client"
 import React from 'react';
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { useRouter} from "next/navigation";
 
 
 const HeroPage = () => {
+    const router = useRouter();
+    const HandleClickGetStarted = ()=>{
+        router.push('/dashboard/discussions');
+    }
     return (
         <div className="flex justify-between px-[10%] space-x-14 mt-32">
             <div className='flex flex-col items-start  text-center    gap-7'>
@@ -15,7 +21,7 @@ const HeroPage = () => {
                         Dive deep in immersive, interactive small groups. Expand horizons, engage in discussions, and elevate your learning journey with us.
                     </p>
                 </div>
-                <Button  className='text-lg'>
+                <Button  className='text-lg' onClick={HandleClickGetStarted}>
                     Get started
                 </Button>
             </div>
