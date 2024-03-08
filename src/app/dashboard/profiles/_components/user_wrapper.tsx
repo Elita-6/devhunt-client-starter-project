@@ -60,7 +60,7 @@ export default function UserWrapper() {
 
 
             </div>
-            <div className="w-full grid grid-cols-4 gap-3 ">
+            <div className="w-full grid grid-cols-1  md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-3 ">
 
                 {
                     (users?.data && !isLoading) && (
