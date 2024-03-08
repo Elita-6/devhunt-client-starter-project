@@ -19,7 +19,20 @@ const CommentItems = (props:Props) => {
                 <CustomAvatar image_url={props.user.profileUrl!}/>
                 <div className="flex flex-col space-y-1">
                     <div className="flex space-x-2">
-                        <p className='font-semibold hover:underline'>{props.user.userName}</p>
+                        <p className='font-semibold hover:underline'>
+                            {
+                                props.user?.userName! == null ?(
+                                    <>
+                                        {props.user?.firstName!}
+                                    </>
+                                ):(
+                                    <>
+                                        {props.user?.userName!}
+                                    </>
+                                )
+                            }
+                        </p>
+
                         <div className=' flex items-center space-x-3 text-sm'>
                             <span className='cursor-pointer text-sm text-[#837676]' >{format(date, 'MMM dd, HH:mm a')}</span>
                         </div>
