@@ -7,7 +7,11 @@ interface CreateUserDTO {
 }
 
 interface UpdateUserDTO {
-
+    username?: string,
+    firstName?: string,
+    lastName?: string,
+    email?: string,
+    profileUrl: string
 }
 
 class UserService{

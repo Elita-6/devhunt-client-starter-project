@@ -14,18 +14,19 @@ export enum PROFILE_ENDPOINTS {
     DELETE= "/user-profile/userid"
 }
 
-export enum TECHNO_ENDPOINTS {
+export enum TECH_ENDPOINTS {
     GET_ALL= '/technology?q=query'
 }
 export enum SKILLS_ENDPOINT {
     GET_USER_SKILLS=  "/skills/userid",
 }
 
-export  enum EXPERIENCE_ENDPOINT {
-    GET= "/experience/userid?page=number_page?size=size_number",
+export  enum EXPERIENCE_ENDPOINTS {
+    GET= "/experience/",
+    GET_ALL= "/experience/userid?page=number_page?size=size_number",
     CREATE= "/experience",
     UPDATE= "/experience/userid",
-    DELETE= "/experience/userid"
+    DELETE= "/experience/id"
 }
 export  enum PROJECT_ENDPOINT {
     GET= "/project/userid?page=number_page?size=size_number",

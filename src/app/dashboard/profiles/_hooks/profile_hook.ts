@@ -1,5 +1,6 @@
 import {useMutation, useQuery, useQueryClient} from "react-query";
 import {profileService} from "@/app/dashboard/profiles/_services/profile_service";
+import {techService} from "@/app/dashboard/profiles/_services/tech_service";
 
 
 export  const useCreateExample= ()=>{
@@ -15,10 +16,10 @@ export  const useCreateExample= ()=>{
         }
     )
 }
-export const useFetchAllTech = () =>{
+export const useFetchAllTech = (q: string) =>{
     return useQuery({
-        queryKey:['tech'],
-        //queryFn:()=> profileService.getAllTechnology()
+        queryKey:['tech', q],
+        queryFn:()=> techService.getAllTechByName(q)
     })
 }
 
