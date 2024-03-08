@@ -29,7 +29,8 @@ const CreatePostForm = (props:Props) => {
         register,
         handleSubmit,
         formState:{errors,isSubmitting},
-        reset
+        reset,
+        resetField
     } = useForm<IFormInput>()
     const onSubmit:SubmitHandler<IFormInput> = async (data)=>{
         const tagIds = tags.map(tag => tag.tagId);
@@ -40,6 +41,8 @@ const CreatePostForm = (props:Props) => {
         })
         props.HandleClick()
         if (isSuccess){
+        resetField("postDescription")
+        resetField("postTitle")
             props.HandleClick()
             reset()
             console.log("success")

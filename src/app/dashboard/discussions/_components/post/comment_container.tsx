@@ -25,7 +25,8 @@ const CommentContainer = (props:Props) => {
     const {
         register,
         handleSubmit,
-        formState:{errors,isSubmitting}
+        formState:{errors,isSubmitting},
+        resetField
     } = useForm<IFormInput>()
     useEffect(()=>{
         scrollref.current?.scrollIntoView({behavior: "smooth"})
@@ -37,6 +38,7 @@ const CommentContainer = (props:Props) => {
         })
         console.log(props.postId)
         if (isSuccess){
+        resetField("comment")
             console.log("success")
         }
     }
@@ -70,7 +72,7 @@ const CommentContainer = (props:Props) => {
                     }
                     <form onSubmit={handleSubmit(onSubmit)}  className=" my-5 px-4 pt-3 flex justify-between space-x-6">
                         <input type="text" placeholder="Type your message here" className="outline-none dark:text-[#444] p-2 input bg-[#E8F4FC] w-[25vw]" {...register("comment", { required: true })} />
-                        <button type="submit" className="bg-[#0000FF] p-2 rounded-lg">
+                        <button type="submit" disabled={isLoading} className="bg-[#0000FF] p-2 rounded-lg">
                             <Send className="text-white" />
                         </button>
                     </form>
