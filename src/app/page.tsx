@@ -1,7 +1,6 @@
 import Image from "next/image";
 import ExampleComponent from "@/app/feat-exemple/_components/example_component";
 import HeroPage from "@/app/_common/components/nomena_hero_page";
-import Card from "@/app/_common/components/card";
 
 export default function Home() {
   return (
