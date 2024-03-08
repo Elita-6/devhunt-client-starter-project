@@ -48,15 +48,15 @@ const CreatePostForm = (props:Props) => {
     return (
         <form className='flex flex-col space-y-3 w-full p-3'  onSubmit={handleSubmit(onSubmit)}>
             <div className="grid w-full  items-center gap-1.5">
-                <label htmlFor='design'>Title</label>
+                <label htmlFor='design' className="dark:text-black">Title</label>
                 <input type='text'  placeholder='type your title here'
-                       className='outline-none p-2 input bg-[#E8F4FC]'  {...register("postTitle",{required:true})} />
+                       className='outline-none dark:text-black p-2 input bg-[#E8F4FC]'  {...register("postTitle",{required:true})} />
                 {errors.postTitle && <span className='text-red-600'> This field is required</span>}
             </div>
             <div className="grid w-full  items-center gap-1.5">
-                <label htmlFor='rent'>Description</label>
+                <label htmlFor='rent' className="dark:text-black">Description</label>
                 <input type='text'  placeholder='type your title here'
-                       className='outline-none p-2 input  bg-[#E8F4FC]' {...register("postDescription",{required:true})} />
+                       className='outline-none p-2 text-black input  bg-[#E8F4FC]' {...register("postDescription",{required:true})} />
                 {errors.postDescription && <span className='text-red-600'> This field is required</span>}
             </div>
             <div className="w-full">
