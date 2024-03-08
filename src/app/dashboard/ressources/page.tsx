@@ -6,9 +6,9 @@ import TableBody from "@/app/dashboard/ressources/_components/table/table_body";
 const Page = () => {
     return (
         <div className="flex flex-col space-y-6 px-8">
-            <ResourceHeader/>
-            <ResourceCategory/>
-            <TableBody/>
+            <ResourceHeader />
+            <ResourceCategory />
+            <TableBody />
         </div>
     );
 };
