@@ -1,6 +1,6 @@
 import {useMutation, useQuery, useQueryClient} from "react-query";
 import {IExampleDto} from "@/app/feat-exemple/_services/definition";
-import {profileService} from "@/app/dashboard/profiles/_services/exemple_service";
+import {profileService} from "@/app/dashboard/profiles/_services/profile_service";
 
 
 export  const useCreateExample= ()=>{

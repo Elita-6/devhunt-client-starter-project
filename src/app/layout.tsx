@@ -35,7 +35,6 @@ export default async function RootLayout({children}: Readonly<{ children: React.
           >
               <SessionProvider session={session}>
                   <main className="min-h-screen dark:bg-blend-darken">
-
                       <NavBarWrapper/>
                       {children}
                   </main>
