@@ -1,16 +1,16 @@
 "use client"
 import React from 'react';
-import { FaCommentAlt } from "react-icons/fa";
-import { useFetchComment } from "@/app/dashboard/discussions/_hooks/post_hooks";
+import {FaCommentAlt} from "react-icons/fa";
+import {useFetchComment} from "@/app/dashboard/discussions/_hooks/post_hooks";
 import CommentContainer from "@/app/dashboard/discussions/_components/post/comment_container";
 
-const Comment = ({ postId, HandleClick, isReply, comment }: { postId: string, HandleClick: () => void, isReply: boolean, comment: number }) => {
-    const { data, isLoading } = useFetchComment(postId)
+
+const Comment = ({postId,HandleClick,isReply,comment}:{postId:string,HandleClick:()=>void,isReply:boolean,comment:number}) => {
     return (
         <>
             {
                 isReply && (
-                    <CommentContainer postId={postId} HandleClick={HandleClick} />
+                    <CommentContainer postId={postId}HandleClick={HandleClick}/>
                 )
             }
             <button onClick={HandleClick} className="flex space-x-3 items-center">

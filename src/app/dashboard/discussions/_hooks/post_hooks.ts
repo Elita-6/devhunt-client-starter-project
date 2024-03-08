@@ -16,16 +16,27 @@ export  const useCreatePost= ()=>{
     )
 }
 
-export  const useCreateComment= ()=>{
+export  const useCreateComment= (postId:string)=>{
     const queryClient = useQueryClient()
     return useMutation(
         {
             mutationKey:['create','comment'],
-            mutationFn: (comment:ICommentDto)=> postService.createCommentForPost(comment),
+            mutationFn: (comment:ICommentDto)=> postService.createCommentForPost(comment,postId),
             onSuccess: async ()=>{
-                await queryClient.resetQueries(['comments'])
-                await queryClient.invalidateQueries(['comments'])
-            }
+                await queryClient.invalidateQueries(['comments',postId])
+            },
+            // onMutate: async (comment) =>{
+            //     await queryClient.cancelQueries({ queryKey: ['comments',postId ] })
+            //
+            //     // Snapshot the previous value
+            //     const previousComment = queryClient.getQueryData(['comments', postId])
+            //
+            //     // Optimistically update to the new value
+            //     queryClient.setQueryData(['comments', postId], comment)
+            //
+            //     // Return a context with the previous and new todo
+            //     return { previousComment, comment }
+            // }
         }
     )
 }
@@ -66,7 +77,7 @@ export const useFetchReaction =(postId:string)=>{
 
 export const useFetchComment =(postId:string)=>{
     return useQuery({
-        queryKey:['comments'],
+        queryKey:['comments',postId],
         queryFn:()=> postService.getCommentForPost(postId)
     })
 }
