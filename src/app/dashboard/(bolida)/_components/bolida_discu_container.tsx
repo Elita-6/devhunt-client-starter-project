@@ -1,5 +1,5 @@
 "use client"
-import React from 'react';
+import React, {useEffect, useRef} from 'react';
 import BolidaDiscuBar from "@/app/dashboard/(bolida)/_components/bolida_discu_bar";
 import Image from "next/image";
 import {useSession} from "next-auth/react";
@@ -14,9 +14,13 @@ interface Props{
 const BolidaDiscuContainer = (props:Props) => {
     const session = useSession();
     const{data,isLoading,isSuccess}=useFetchAllMessage()
+    const scrollref = useRef<HTMLDivElement | null>(null)
     if(isSuccess){
         console.log("test")
     }
+    useEffect(()=>{
+        scrollref.current?.scrollIntoView({behavior: "smooth"})
+    },[data])
     return (
         <div className="fixed right-20   bottom-20 bg-white shadow-md  z-40 h-[70vh] w-[30vw] overflow-y-scroll">
             <BolidaDiscuBar HandleCLickBolidaButton={props.HandleCLickBolidaButton}/>
@@ -46,7 +50,7 @@ const BolidaDiscuContainer = (props:Props) => {
                     )
                 }
             </div>
-            <div className="mt-[8vh]"/>
+            <div className="mt-[8vh]" ref={scrollref}/>
             <BolidaForm/>
         </div>
     );
