@@ -11,7 +11,7 @@ interface Props{
 }
 const CommentBar = (props:Props) => {
     return (
-        <div className="relative bg-white w-full">
+        <div className="relative bg-white w-full dark:text-black">
             <div className="absolute inset-x-0 top-0 z-10 bg-white w-full">
                 <div className="fixed w-full flex justify-between bg-white py-2 items-center">
                     <div className="flex justify-between items-center space-x-4">
