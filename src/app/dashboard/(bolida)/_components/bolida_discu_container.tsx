@@ -22,7 +22,7 @@ const BolidaDiscuContainer = (props:Props) => {
         scrollref.current?.scrollIntoView({behavior: "smooth"})
     },[data])
     return (
-        <div className="fixed right-20   bottom-20 bg-white shadow-md  z-40 h-[70vh] w-[30vw] overflow-y-scroll">
+        <div className="fixed right-20 dark:text-black  bottom-20 bg-white shadow-md  z-40 h-[70vh] w-[30vw] overflow-y-scroll">
             <BolidaDiscuBar HandleCLickBolidaButton={props.HandleCLickBolidaButton}/>
             <div className="w-full flex flex-col justify-center items-center">
                 <div className="bolida-profile mt-[8vh]   flex justify-center items-center">
