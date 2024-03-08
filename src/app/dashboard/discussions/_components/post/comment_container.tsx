@@ -12,28 +12,6 @@ interface Props{
 interface IFormInput{
     comment:string
 }
-const comments= [
-    {
-        content: "Great post!",
-        user: {
-            userId: "2",
-            userName: "Jane Smith",
-            firstName: "Alice Johnson",
-            profileUrl: "https://example.com/profile"
-        },
-        dateComment: "2024-03-06"
-    },
-    {
-        content: "I agree!",
-        user: {
-            userId: "3",
-            userName: "Alice Johnson",
-            firstName: "Alice Johnson",
-            profileUrl: "https://example.com/profile"
-        },
-        dateComment: "2024-03-06"
-    }
-]
 const CommentContainer = (props:Props) => {
     const {data,isSuccess:success}= useFetchComment(props.postId)
     const {isSuccess,isLoading,mutate} = useCreateComment()
