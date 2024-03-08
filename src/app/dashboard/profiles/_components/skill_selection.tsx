@@ -1,8 +1,6 @@
 import React , {useCallback , useState} from "react";
-
-import {useFetchAllTag} from "@/app/dashboard/discussions/_hooks/post_hooks";
 import SelectionInput , {SelectableItem} from "@/app/dashboard/profiles/_components/multi_select_input";
-import {useFetchAllSkill , useFetchAllTech} from "@/app/dashboard/profiles/_hooks/profile_hook";
+import { useFetchAllTech} from "@/app/dashboard/profiles/_hooks/profile_hook";
 
 
 
