@@ -16,14 +16,24 @@ const PostItem = (props:Partial<IPost>) => {
     const date = new Date(props.dateCreation!);
     return (
         <>
-            <div className="flex space-x-3">
+            <div className="flex space-x-3 w-full mt-5">
                 <div className="flex flex-col justify-start">
                     <CustomAvatar image_url={props.user?.profileUrl!} style="w-[3vw] h-[6vh]"/>
                 </div>
-                <div className="flex flex-col mt-2 space-y-3">
-                    <div className="flex space-x-3">
+                <div className="flex flex-col mt-2 space-y-3 w-full">
+                    <div className="flex space-x-3 w-full">
                         <h4 className="font-semibold">
-                            {props.user?.userName!}
+                            {
+                                props.user?.userName! == null ?(
+                                    <>
+                                        {props.user?.firstName!}
+                                    </>
+                                    ):(
+                                        <>
+                                        {props.user?.userName!}
+                                        </>
+                                )
+                            }
                         </h4>
                         <p className="text-[#837676] ">
                             {
