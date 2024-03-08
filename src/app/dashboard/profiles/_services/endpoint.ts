@@ -18,7 +18,8 @@ export enum TECH_ENDPOINTS {
     GET_ALL= '/technology?q=query'
 }
 export enum SKILLS_ENDPOINT {
-    GET_USER_SKILLS=  "/technology/profileId",
+    GET_USER_SKILLS=  "/userprofile/profileId",
+    UPDATE_USER_SKILLS= "/profiletech/profileId"
 }
 
 export  enum EXPERIENCE_ENDPOINTS {
