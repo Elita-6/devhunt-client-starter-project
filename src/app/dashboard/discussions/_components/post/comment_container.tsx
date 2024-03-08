@@ -36,7 +36,7 @@ const CommentContainer = (props:Props) => {
 
     return (
         <div className="overlay" onClick={props.HandleClick}>
-            <div className="central h-[25vh] overflow-y-scroll" onClick={(e)=>e.stopPropagation()}>
+            <div className="central h-[35vh] overflow-y-scroll" onClick={(e)=>e.stopPropagation()}>
                 {
                     isLoading && (
                         <p>Load comments...</p>
@@ -52,7 +52,7 @@ const CommentContainer = (props:Props) => {
                         <CommentItems key={key} content={elem.comment.content} user={elem.user} created_at={elem.comment.created_at}/>
                     ))
                 }
-            <form onSubmit={handleSubmit(onSubmit)} className="flex bottom-0 justify-between space-x-6 px-4 pt-3 w-full ">
+            <form onSubmit={handleSubmit(onSubmit)} className="flex bottom-4 fixed justify-between space-x-6 px-4 pt-3 w-full ">
                 <input type='text'  placeholder='Type your message here '
                        className='outline-none p-2 input bg-[#E8F4FC] w-[25vw]' {...register("comment",{required:true})} />
                 <button type="submit" className="bg-[#0000FF] p-2 rounded-lg">
