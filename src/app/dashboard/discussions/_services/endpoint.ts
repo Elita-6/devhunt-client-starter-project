@@ -1,5 +1,5 @@
 export enum POST_ENDPOINTS{
-    CREATE = "/post",
+    CREATE = "/post/id",
     GET_ALL="/post",
     GET="/post/id",
     UPDATE="/post/id",
@@ -7,7 +7,7 @@ export enum POST_ENDPOINTS{
     REACTION="/reaction",
     GET_REACTION_BY_POST_ID="/reaction/id",
     GET_COMMENT_BY_POST_ID="/commentaire/id",
-    COMMENT_POST="/commentaire"
+    COMMENT_POST="/commentaire/id"
 }
 export enum TAG_ENDPOINTS{
     CREATE = "/tag/create",
