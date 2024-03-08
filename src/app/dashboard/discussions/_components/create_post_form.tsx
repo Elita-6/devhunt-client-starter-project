@@ -12,7 +12,7 @@ interface Props {
     HandleClick:()=>void
 }
 const CreatePostForm = (props:Props) => {
-    const{mutate,isSuccess}=useCreatePost()
+    const{mutate,isSuccess,isLoading}=useCreatePost()
     const [tags, setTags] = useState<ITag[]>([]);
     const handleRemoveTag = (tagToRemove: ITag) => {
         setTags(prevState => prevState.filter(tag => tag.tagId !== tagToRemove.tagId))
@@ -38,7 +38,9 @@ const CreatePostForm = (props:Props) => {
             postDescription:data.postDescription,
             tags:tagIds
         })
+        props.HandleClick()
         if (isSuccess){
+            props.HandleClick()
             reset()
             console.log("success")
         }
@@ -61,7 +63,8 @@ const CreatePostForm = (props:Props) => {
                 <TagSelectionInput onSelectedTags={handleSelectTags} onRemoveTag={handleRemoveTag} tags={tags}/>
             </div>
             <button type='submit' className='bg-[#0000FF] w-full text-white py-3'
-                disabled={isSubmitting ? true : false}
+                disabled={isLoading}
+
             >
                 Create post
             </button>
