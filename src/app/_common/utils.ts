@@ -21,3 +21,25 @@ export  const formateDate = (startDate: any, endDate: any) => {
 
     return `${formattedStartDate} - ${formattedEndDate}`;
 }
+
+export  function findAddedAndRemovedItems(originalIds: string[], newIds: string[]): { added: string[], removed: string[] } {
+    const originalSet = new Set(originalIds);
+    const newSet = new Set(newIds);
+
+    const added: string[] = [];
+    const removed: string[] = [];
+
+    newSet.forEach(id => {
+        if (!originalSet.has(id)) {
+            added.push(id);
+        }
+    });
+
+    originalSet.forEach(id => {
+        if (!newSet.has(id)) {
+            removed.push(id);
+        }
+    });
+
+    return { added, removed };
+}
