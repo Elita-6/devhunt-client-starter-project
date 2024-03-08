@@ -5,7 +5,7 @@ import UserWrapper from "@/app/dashboard/profiles/_components/user_wrapper";
 const Page = () => {
     return (
         <section>
-            <h4 className="text-2xl font-semibold mb-5">Users Lists</h4>
+            <h4 className="text-2xl font-semibold mb-5 px-12">Users Lists</h4>
             <UserWrapper />
         </section>
     );
