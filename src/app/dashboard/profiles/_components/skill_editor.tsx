@@ -25,7 +25,7 @@ export function SkillsEditor(props: ISkillEditor) {
     }
     return(
         <form className="w-full flex flex-col gap-3">
-            {/*<SkillSelectionInput onSelectedTags={handleOnSelectedTag} onRemoveTag={handleOnRemoveTag} tags={skillsUpdate} />*/}
+            <SkillSelectionInput onSelectedTags={handleOnSelectedTag} onRemoveTag={handleOnRemoveTag} tags={skillsUpdate} />
             <div className="flex items-center gap-3">
                 <Button className="bg-blue-700">
                     Save changes
