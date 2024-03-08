@@ -21,24 +21,22 @@ export  const useCreateComment= (postId:string)=>{
     return useMutation(
         {
             mutationKey:['create','comment'],
-            mutationFn: (comment:ICommentDto)=> postService.createCommentForPost(comment,postId),
-            onMutate: async (comment: ICommentDto) =>{
-                await queryClient.cancelQueries({ queryKey: ['comments',postId ] })
-                 const previousComment = queryClient.getQueryData(['comments', postId])
-
-                 // Optimistically update to the new value
-                 // @ts-ignore
-                queryClient.setQueryData(['comments', postId], (old) => [...old, comment])
-
-                // Return a context with the previous and new todo
-                return { previousComment }
-             },
-            onError: (err, comment, context) => {
-                queryClient.setQueryData(['comments', postId], context?.previousComment)
+            mutationFn: (comment:ICommentDto)=> postService.createCommentForPost(comment),
+            onSuccess: async ()=>{
+                await queryClient.invalidateQueries(['comments',postId])
             },
-            onSettled: async () => {
-                await queryClient.invalidateQueries('todos')
-            },
+            // onMutate: async (comment) =>{
+            //     await queryClient.cancelQueries({ queryKey: ['comments',postId ] })
+            //
+            //     // Snapshot the previous value
+            //     const previousComment = queryClient.getQueryData(['comments', postId])
+            //
+            //     // Optimistically update to the new value
+            //     queryClient.setQueryData(['comments', postId], comment)
+            //
+            //     // Return a context with the previous and new todo
+            //     return { previousComment, comment }
+            // }
         }
     )
 }

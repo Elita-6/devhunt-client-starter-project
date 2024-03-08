@@ -70,9 +70,9 @@ const PostItem = (props:Partial<IPost>) => {
                             }
                             <Comment postId={props.postId!} comment={props.comments?.length!} isReply={isReply} HandleClick={HandleClickReply}/>
                         </div>
-                        <button onClick={HandleClickReply}  className=" flex space-x-1 bg-[#ECEAEA] rounded-full px-3 py-2">
+                        <button onClick={HandleClickReply}  className=" flex space-x-1 bg-[#ECEAEA]  dark:text-[#444] rounded-full px-3 py-2">
                             <Reply className="w-5 h-5" />
-                            <span> reply </span>
+                            <span > reply </span>
                         </button>
                     </div>
                 </div>
