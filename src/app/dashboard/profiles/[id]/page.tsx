@@ -7,7 +7,6 @@ import {Diamond , Github , LinkIcon , Pencil} from "lucide-react";
 import {EditProfile} from "@/app/dashboard/profiles/_components/edit_profile";
 import {Box} from "@/app/dashboard/profiles/_components/box";
 import {SocialLInk} from "@/app/dashboard/profiles/_components/SocialLInk";
-import {useFetchAllTech} from "@/app/dashboard/profiles/_hooks/profile_hook";
 import {ProjectWrapper} from "@/app/dashboard/profiles/_components/project/project_wrapper";
 import ExperienceWrapper from "@/app/dashboard/profiles/_components/project/experience_wrapper";
 import {users} from "@/app/_common/constants/data";
