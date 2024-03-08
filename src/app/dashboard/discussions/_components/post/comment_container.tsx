@@ -6,16 +6,37 @@ import {Send} from "lucide-react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useCreateComment, useFetchComment} from "@/app/dashboard/discussions/_hooks/post_hooks";
 interface Props{
-    comments: IComment[]
     HandleClick:()=>void
     postId:string
 }
 interface IFormInput{
     comment:string
 }
+const comments= [
+    {
+        content: "Great post!",
+        user: {
+            userId: "2",
+            userName: "Jane Smith",
+            firstName: "Alice Johnson",
+            profileUrl: "https://example.com/profile"
+        },
+        dateComment: "2024-03-06"
+    },
+    {
+        content: "I agree!",
+        user: {
+            userId: "3",
+            userName: "Alice Johnson",
+            firstName: "Alice Johnson",
+            profileUrl: "https://example.com/profile"
+        },
+        dateComment: "2024-03-06"
+    }
+]
 const CommentContainer = (props:Props) => {
+    const {data,isSuccess:success}= useFetchComment(props.postId)
     const {isSuccess,isLoading,mutate} = useCreateComment()
-    const {data}= useFetchComment(props.postId)
     const {
         register,
         handleSubmit,
@@ -31,12 +52,16 @@ const CommentContainer = (props:Props) => {
             console.log("success")
         }
     }
+    if(success){
+        console.log(data)
+    }
+
     return (
         <div className="overlay" onClick={props.HandleClick}>
             <div className="central" onClick={(e)=>e.stopPropagation()}>
                 {
-                    props.comments.map((elem,key)=>(
-                        <CommentItems key={key} content={elem.content} user={elem.user} dateComment={elem.dateComment}/>
+                    data?.data.map((elem:IComment,key:number)=>(
+                        <CommentItems key={key} content={elem.comment.content} user={elem.user} created_at={elem.comment.created_at}/>
                     ))
                 }
             <form onSubmit={handleSubmit(onSubmit)} className="flex justify-between space-x-6 px-4 py-3 w-full h-[8vh]">

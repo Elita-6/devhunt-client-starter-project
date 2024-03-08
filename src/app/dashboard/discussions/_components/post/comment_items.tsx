@@ -3,13 +3,20 @@ import {IComment} from "@/app/dashboard/discussions/_services/definition";
 import {CustomAvatar} from "@/app/_common/components/avatar";
 import {Heart} from "lucide-react";
 import {format} from "date-fns";
+import {IUser} from "@/app/_common/definition";
+interface Props{
+    user:Partial<IUser>
+    created_at:string
+    content:string,
+}
+const CommentItems = (props:Props) => {
+    const date = new Date();
+    console.log(props.created_at)
 
-const CommentItems = (props:IComment) => {
-    const date = new Date(props.dateComment);
     return (
         <div data-idcomment='idcomment' className="flex justify-between items-center  pr-3">
             <div className=" p-3 flex items-center space-x-2">
-                <CustomAvatar image_url={props.user.profileUrl}/>
+                <CustomAvatar image_url={props.user.profileUrl!}/>
                 <div className="flex flex-col space-y-1">
                     <div className="flex space-x-2">
                         <p className='font-semibold hover:underline'>{props.user.userName}</p>
