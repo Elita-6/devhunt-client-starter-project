@@ -25,9 +25,9 @@ const CreatePostBar = () => {
                             <CustomAvatar image_url={session.data?.user.image!} username={session.data?.user.name!} style='h-10 w-10' />
                         )
                     }
-                    <p>Tell everyone whats on your mind</p>
+                    <p className="dark:text-[#444]">Tell everyone whats on your mind</p>
                 </div>
-                <div className="flex items-center space-x-2">
+                <div className="flex items-center space-x-2 dark:text-[#444]">
                     <Smile />
                     <Image />
                 </div>
