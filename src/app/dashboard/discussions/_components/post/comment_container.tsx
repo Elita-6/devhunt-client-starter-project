@@ -29,7 +29,7 @@ const CommentContainer = (props:Props) => {
             content:data.comment,
             postId:props.postId
         })
-        console.log("test")
+        console.log(props.postId)
         if (isSuccess){
             console.log("success")
         }
