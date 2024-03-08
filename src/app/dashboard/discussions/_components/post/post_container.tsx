@@ -46,7 +46,7 @@ const PostContainer = () => {
         console.log(data)
     }
     return (
-        <div className="px-8">
+        <div className="px-8 w-full" >
             {
                 isLoading && (
                     <p>Loading to fetch all topic ...</p>
