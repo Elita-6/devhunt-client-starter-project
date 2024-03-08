@@ -27,6 +27,24 @@ export const useFetchUserProfile =(userid: string)=>{
     })
 }
 
+export const useFetchUserSkills =(profileId: string)=>{
+    return useQuery({
+        queryKey:['user_skills',profileId],
+        queryFn:()=> profileService.getUserProfileById(profileId)
+    })
+}
+
+export const useUpdateUserSkills = (profileId: string) => {
+    const queryClient = useQueryClient()
+    return useMutation({
+        /*mutationFn: (example: IExampleDto ) => {},*/
+        onSuccess: async () => {
+            await queryClient.invalidateQueries(['user_skills', profileId])
+           // await queryClient.resetQueries(['example'])
+        }
+    })
+}
+
 
 export const useFetchUserSkill = (userid: string) => {
     return useQuery({

@@ -6,12 +6,14 @@ type State = {
     firstName:string
     lastName:number
     username:string
+    userId: string
 }
 type Action = {
     updateProfileUrl:(profileUrl: State['profileUrl'])=>void
     updateFirstname:(firstName: State['firstName'])=>void
     updateLastname:(firstName: State['lastName'])=>void
     updateUsername:(lastname: State['username'])=>void
+    updateUserId:(lastname: State['userId'])=>void
 }
 
 type WithSelectors<S> = S extends { getState: () => infer T }
@@ -33,8 +35,10 @@ export const useApartmentDetails = createSelectors(create<State & Action>((set) 
     lastName:0,
     firstName:'',
     username:'',
+    userId: '',
     updateProfileUrl:(profileUrl)=> set(()=>({profileUrl: profileUrl})),
     updateLastname:(lastName)=> set(()=>({lastName: lastName})),
     updateFirstname:(firstName)=> set(()=>({firstName: firstName})),
     updateUsername:(username)=> set(()=>({username: username})),
+    updateUserId:(userId)=> set(()=>({userId: userId})),
 })))
