@@ -20,10 +20,10 @@ const PostSkeleton = () => {
                     </div>
                     <div className="flex w-full justify-between">
                         <div className="flex items-center space-x-12">
-                            <Skeleton className="w-[2vw] h-[2vh]"/>
-                            <Skeleton className="w-[2vw] h-[2vh]"/>
+                            <Skeleton className="w-[2vw] h-[4vh]"/>
+                            <Skeleton className="w-[2vw] h-[4vh]"/>
                         </div>
-                        <Skeleton className="rounded-full h-[2vh] w-[3vw]"/>
+                        <Skeleton className="rounded-full h-[4vh] w-[3vw]"/>
                     </div>
                 </div>
             </div>

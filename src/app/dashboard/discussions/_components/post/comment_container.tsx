@@ -6,15 +6,20 @@ import {Send} from "lucide-react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useCreateComment, useFetchComment} from "@/app/dashboard/discussions/_hooks/post_hooks";
 import CommentSkeleton from "@/app/dashboard/discussions/_components/post/comment_skeleton";
+import CommentBar from "@/app/dashboard/discussions/_components/post/comment_bar";
 interface Props{
     HandleClick:()=>void
-    postId:string
+    postId:string,
+        profileUrl:string
+        username:string
+        firstName:string
+        postTitle:string
 }
 interface IFormInput{
     comment:string
 }
 const CommentContainer = (props:Props) => {
-    const {data,isSuccess:success}= useFetchComment(props.postId)
+    const {data,isSuccess:success,isLoading:isFetchComment}= useFetchComment(props.postId)
     const scrollref = useRef<HTMLDivElement | null>(null)
     const {isSuccess,isLoading,mutate} = useCreateComment(props.postId)
     const {
@@ -43,7 +48,9 @@ const CommentContainer = (props:Props) => {
         <div className="overlay" onClick={props.HandleClick}>
             <div className='central'>
                 <div className="relative h-[35vh] overflow-y-scroll" onClick={(e) => e.stopPropagation()}>
-                            {isLoading && (
+
+                    <CommentBar HandleCLickButton={props.HandleClick} firstName={props.firstName} postTitle={props.postTitle} profileUrl={props.profileUrl} username={props.username}/>
+                            {isFetchComment && (
                                 <>
                                     <CommentSkeleton/>
                                     <CommentSkeleton/>
@@ -52,12 +59,12 @@ const CommentContainer = (props:Props) => {
                             )}
                     {
                         data != undefined && (
-                        <>
+                        <div className='mt-[6vh]'>
                             {data?.data.length === 0 && <p>reply to this topic</p>}
                             {data?.data.map((elem: IComment, key: number) => (
                                 <CommentItems key={key} content={elem.comment.content} user={elem.user} created_at={elem.comment.created_at} />
                             ))}
-                        </>
+                        </div>
 
                         )
                     }
