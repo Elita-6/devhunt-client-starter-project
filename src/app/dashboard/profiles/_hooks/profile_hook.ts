@@ -19,6 +19,14 @@ export const useFetchAllUser = (level?: string,parcours?: string ) =>{
         queryFn:()=> userService.getAllUser()
     })
 }
+// profile
+export const useFetchUserProfile =(userid: string)=>{
+    return useQuery({
+        queryKey:['user_profile',userid],
+        queryFn:()=> profileService.getUserProfileById(userid)
+    })
+}
+
 
 export const useFetchUserSkill =(userid: string)=>{
     return useQuery({

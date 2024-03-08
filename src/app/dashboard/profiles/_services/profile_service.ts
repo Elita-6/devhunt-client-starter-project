@@ -8,8 +8,8 @@ class ProfileService{
     public createProfile(profileCreate: ProfileDTO){
         return httpClient.post(PROFILE_ENDPOINTS.CREATE,profileCreate)
     }
-    public getProfileById(profileId: string){
-        return httpClient.get(PROFILE_ENDPOINTS.GET.replace("userid",profileId))
+    public getUserProfileById(userId: string){
+        return httpClient.get(PROFILE_ENDPOINTS.GET.replace("userid",userId))
     }
     public updateProfile(profileUpdate: ProfileDTO,id:string){
         return httpClient.put(PROFILE_ENDPOINTS.UPDATE.replace("userid",id),profileUpdate)

@@ -10,15 +10,20 @@ import {SocialLInk} from "@/app/dashboard/profiles/_components/SocialLInk";
 import {ProjectWrapper} from "@/app/dashboard/profiles/_components/project/project_wrapper";
 import ExperienceWrapper from "@/app/dashboard/profiles/_components/project/experience_wrapper";
 import {users} from "@/app/_common/constants/data";
+import {useFetchUserProfile} from "@/app/dashboard/profiles/_hooks/profile_hook";
 
 
 
 export default function ProfileDetailPage({params}: {params: {id: string}}) {
     const user_id = params.id;
-    const user = users.filter(user => user.id == user_id)[0];
+    const user = users[1];
+    const {data: profile} = useFetchUserProfile(user_id);
+    console.log(profile);
     return(
         <div className="w-full h-full px-24">
-            <div className="bg-gradient-to-br from-[#761ABE] to-[#4E246E] h-[12rem] relative rounded-lg">
+            {
+                /*
+                <div className="bg-gradient-to-br from-[#761ABE] to-[#4E246E] h-[12rem] relative rounded-lg">
                 <div className="w-[10rem] h-[16rem] rounded-3xl bg-[#E8F4FC] opacity-10 -rotate-45 absolute -right-16 -top-14 "/>
                 <div className="absolute -bottom-12 md:px-[5%] lg:px-[10%] ">
                     <div className="flex items-center gap-5">
@@ -38,14 +43,18 @@ export default function ProfileDetailPage({params}: {params: {id: string}}) {
                 </div>
             </div>
             <div className="flex justify-end p-4 z-10">
-                {/*Edit button*/}
-                 <EditProfile />
-            </div>
-            <SkillsContainer skills={user.skills} />
-            <div className="flex flex-col gap-7 w-full">
-                <ExperienceWrapper user_id={user_id} />
-                <ProjectWrapper user_id={user_id}  />
-            </div>
+
+            <EditProfile />
+        </div>
+    <SkillsContainer skills={user.skills} />
+    <div className="flex flex-col gap-7 w-full">
+        <ExperienceWrapper user_id={user_id} />
+        <ProjectWrapper user_id={user_id}  />
+    </div>
+
+                */
+            }
+
 
 
 

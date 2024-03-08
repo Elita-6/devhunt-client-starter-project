@@ -8,25 +8,25 @@ export enum USER_ENDPOINTS{
 }
 
 export enum PROFILE_ENDPOINTS {
-    GET= "/user-profile/userid",
-    CREATE= "/user-profile/userid",
-    UPDATE= "/user-profile/userid",
-    DELETE= "/user-profile/userid"
+    GET= "/userprofile/userid",
+    CREATE= "/userprofile/userid",
+    UPDATE= "/userprofile/userid",
+    DELETE= "/userprofile/userid"
 }
 
 export enum TECH_ENDPOINTS {
     GET_ALL= '/technology?q=query'
 }
 export enum SKILLS_ENDPOINT {
-    GET_USER_SKILLS=  "/skills/userid",
+    GET_USER_SKILLS=  "/technology/profileId",
 }
 
 export  enum EXPERIENCE_ENDPOINTS {
-    GET= "/experience/",
-    GET_ALL= "/experience/userid?page=number_page?size=size_number",
-    CREATE= "/experience",
-    UPDATE= "/experience/userid",
-    DELETE= "/experience/id"
+    GET= "/experience/profileId",
+    GET_ALL= "/experience/profileId?page=number_page?size=size_number",
+    CREATE= "/experience/profileId",
+    UPDATE= "/experience/profileId/experienceId",
+    DELETE= "/experience/profileId/experienceId"
 }
 export  enum PROJECT_ENDPOINT {
     GET= "/project/userid?page=number_page?size=size_number",
