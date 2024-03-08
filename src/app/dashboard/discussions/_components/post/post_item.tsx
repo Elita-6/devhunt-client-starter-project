@@ -52,6 +52,13 @@ const PostItem = (props:Partial<IPost>) => {
                     <p className="w-[90%]">
                         {props.postDescription}
                     </p>
+                    <div className="flex space-x-2">
+                        {
+                            props.tags?.map((elem:string,key:number)=>(
+                                <p key={key} className='text-sm font-bold'> {elem}</p>
+                            ))
+                        }
+                    </div>
                     <div className="flex w-full justify-between">
                         <div className="flex items-center space-x-12">
                             {
