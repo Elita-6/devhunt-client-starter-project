@@ -6,8 +6,8 @@ class PostService{
     public createPost(post: IPostDto){
         return httpClient.post(POST_ENDPOINTS.CREATE,post)
     }
-    public createCommentForPost(comment:ICommentDto,postId:string){
-        return httpClient.post(POST_ENDPOINTS.COMMENT_POST.replace("id",postId),comment)
+    public createCommentForPost(comment:ICommentDto){
+        return httpClient.post(POST_ENDPOINTS.COMMENT_POST,comment)
     }
     public getExampleByExampleId(postId: string){
         return httpClient.get(POST_ENDPOINTS.GET.replace("id",postId))

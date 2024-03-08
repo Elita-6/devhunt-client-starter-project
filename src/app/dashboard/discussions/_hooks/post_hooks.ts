@@ -21,7 +21,7 @@ export  const useCreateComment= (postId:string)=>{
     return useMutation(
         {
             mutationKey:['create','comment'],
-            mutationFn: (comment:ICommentDto)=> postService.createCommentForPost(comment,postId),
+            mutationFn: (comment:ICommentDto)=> postService.createCommentForPost(comment),
             onSuccess: async ()=>{
                 await queryClient.invalidateQueries(['comments',postId])
             },
