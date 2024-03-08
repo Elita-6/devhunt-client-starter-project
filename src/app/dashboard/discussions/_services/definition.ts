@@ -24,9 +24,12 @@ interface  IUser{
     profileUrl:string
 }
 export interface IComment{
-    content:string,
     user:IUser
-    dateComment:string
+    comment:ICommentContent
+}
+export  interface ICommentContent{
+    created_at:string
+    content:string,
 }
 export interface IReaction{
     userId:string
