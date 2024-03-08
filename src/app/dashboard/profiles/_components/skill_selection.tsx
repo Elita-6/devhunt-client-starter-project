@@ -23,12 +23,11 @@ export default function SkillSelectionInput({onSelectedTags, onRemoveTag, tags}:
     const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement> ) => {
         setQuery(e.target.value)
     }
-
     return (
         <React.Fragment>
             <SelectionInput
                 label=""
-                helperText="Choose tags (up to 5) so readers know what your blog is about "
+                helperText="Search new skills "
                 selectedItems={tags}
                 onItemSelect={handleSelectedTag}
                 onItemRemove={handleCancelClick}

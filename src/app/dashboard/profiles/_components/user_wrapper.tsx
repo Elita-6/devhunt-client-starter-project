@@ -9,10 +9,15 @@ import {
 } from "@/components/ui/navigation-menu";
 import {Input} from "@/components/ui/input";
 import {users} from "@/app/_common/constants/data";
+import {useFetchAllUser} from "@/app/dashboard/profiles/_hooks/profile_hook";
+import {ProfileSkeleton} from "@/app/dashboard/profiles/_components/skelleton/profiles.skeleton";
 
 export default function UserWrapper() {
     const [level, setLevel] = useState('all');
     const [query, setQuery] = useState();
+
+    const {data: users, isLoading} = useFetchAllUser();
+
     const handleSelectLevel = (level: string) => {
         setLevel(level)
     }
@@ -20,7 +25,7 @@ export default function UserWrapper() {
         console.log(e.target.value)
     }
     return(
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 px-12">
             <div className=" h-[5rem] flex justify-between items-center ">
                 <Input
                     type='search'
@@ -29,7 +34,7 @@ export default function UserWrapper() {
                     className="w-[24rem] bg-blue-50 h-14"
                     placeholder="Search by name .."
                 />
-                <div className="flex justify-end mr-12">
+                <div className="flex justify-end ">
                     <NavigationMenu>
                         <NavigationMenuList>
                             <NavigationMenuItem>
@@ -55,11 +60,29 @@ export default function UserWrapper() {
 
 
             </div>
-            <div className="w-full grid grid-cols-4 gap-3">
-                {users.map(user => (
-                    <UserCard id={user.id} name={user.username} image_url={user.profile_url} key={user.profile_url}/>
-                ))}
+            <div className="w-full grid grid-cols-4 gap-3 ">
+
+                {
+                    (users?.data && !isLoading) && (
+                        users.data.map( (user: { userId: string, userName: string; profileUrl: string | undefined, firstName: string, lastName: string; }) => (
+                                <UserCard
+                                    id={user.userId}
+                                    name={user.userName}
+                                    image_url={user.profileUrl}
+                                    key={user.userId}
+                                    firstname={user.firstName}
+                                    lastname={user.lastName}
+                                />
+                            )
+                        )
+                    )
+                }
             </div>
+            {
+                isLoading && (
+                    <ProfileSkeleton />
+                )
+            }
         </div>
 
     )
