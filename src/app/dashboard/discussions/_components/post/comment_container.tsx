@@ -54,13 +54,13 @@ const CommentContainer = (props:Props) => {
 
                         )
                     }
-                    <div className='mt-[8vh] w-full' ref={scrollref}/>
-                    <form onSubmit={handleSubmit(onSubmit)}  className=" bottom-4 left-0 right-0 px-4 pt-3 flex justify-between space-x-6">
+                    <form onSubmit={handleSubmit(onSubmit)}  className=" my-5 px-4 pt-3 flex justify-between space-x-6">
                         <input type="text" placeholder="Type your message here" className="outline-none p-2 input bg-[#E8F4FC] w-[25vw]" {...register("comment", { required: true })} />
                         <button type="submit" className="bg-[#0000FF] p-2 rounded-lg">
                             <Send className="text-white" />
                         </button>
                     </form>
+                    <div className='' ref={scrollref}/>
                 </div>
             </div>
         </div>
