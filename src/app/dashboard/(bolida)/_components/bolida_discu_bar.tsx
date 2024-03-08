@@ -6,7 +6,7 @@ interface Props{
 }
 const BolidaDiscuBar = (props:Props) => {
     return (
-        <div className="relative bg-white">
+        <div className="relative bg-white dark:text-black">
             <div className="absolute inset-x-0 top-0 z-10 bg-white">
                 <div className="fixed w-[30vw] flex justify-between bg-white py-2 items-center">
                     <div className="flex justify-between items-center space-x-4">

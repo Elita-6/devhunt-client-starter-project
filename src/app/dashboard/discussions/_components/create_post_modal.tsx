@@ -10,10 +10,10 @@ const CreatePostModal = (props :Props) => {
             <div className='central flex flex-col p-3 rounded-lg' onClick={(e)=>e.stopPropagation()}>
                 <div className='flex justify-end w-full '>
                     <button onClick={props.HandleClick} className="pr-2">
-                        <MdOutlineClose className='text-xl'/>
+                        <MdOutlineClose className='text-xl dark:text-black'/>
                     </button>
                 </div>
-                <h3 className='text-xl font-semibold pl-2 '>CREATE POST</h3>
+                <h3 className='text-xl font-semibold pl-2 dark:text-black'>CREATE POST</h3>
                 <CreatePostForm HandleClick={props.HandleClick}/>
             </div>
         </div>

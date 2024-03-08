@@ -34,7 +34,7 @@ export default function SelectionInput<T extends SelectableItem>({
                                                                  }: TagSelectionInputProps<T>) {
     return (
         <React.Fragment>
-            <label htmlFor="items" className="form-label">
+            <label htmlFor="items" className="form-label dark:text-black">
                 {label}
             </label>
             <div className="w-full flex flex-wrap form-input  py-2  px-2 gap-1 bg-[#E8F4FC] ">
@@ -47,7 +47,7 @@ export default function SelectionInput<T extends SelectableItem>({
                         id="items"
                         type="search"
                         name="items"
-                        className=" p-4  w-full bg-[#E8F4FC]  border-none focus:outline-none focus:border-none "
+                        className=" p-4  w-full bg-[#E8F4FC] dark:text-black border-none focus:outline-none focus:border-none "
                         placeholder="find a tags for your post..."
                         value={searchQuery}
                         onChange={onSearchInputChange}

@@ -68,7 +68,7 @@ const PostItem = (props:Partial<IPost>) => {
                                     <Reaction postId={props.postId!} reaction={10}/>
                                 )
                             }
-                            <Comment postId={props.postId!} comment={props.comments?.length!} isReply={isReply} HandleClick={HandleClickReply}/>
+                            <Comment postId={props.postId!} comment={props.comments?.length!} isReply={isReply} HandleClick={HandleClickReply} firstName={props.user?.firstName!} username={props.user?.userName!} profileUrl={props.user?.profileUrl!} postTitle={format(date, 'MMM dd, HH:mm a')}/>
                         </div>
                         <button onClick={HandleClickReply}  className=" flex space-x-1 bg-[#ECEAEA]  dark:text-[#444] rounded-full px-3 py-2">
                             <Reply className="w-5 h-5" />
