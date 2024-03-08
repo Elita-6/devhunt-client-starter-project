@@ -12,6 +12,7 @@ export enum POST_ENDPOINTS{
 export enum TAG_ENDPOINTS{
     CREATE = "/tag/create",
     GET_ALL="/tag/prompt/design",
+    GET_TAG_POPULAR = "/tag",
     GET="/tag/id",
     UPDATE="/tag/id",
     DELETE="/tag/id"
