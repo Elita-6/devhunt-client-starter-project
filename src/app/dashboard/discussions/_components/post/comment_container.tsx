@@ -5,6 +5,7 @@ import CommentItems from "@/app/dashboard/discussions/_components/post/comment_i
 import {Send} from "lucide-react";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {useCreateComment, useFetchComment} from "@/app/dashboard/discussions/_hooks/post_hooks";
+import CommentSkeleton from "@/app/dashboard/discussions/_components/post/comment_skeleton";
 interface Props{
     HandleClick:()=>void
     postId:string
@@ -42,7 +43,13 @@ const CommentContainer = (props:Props) => {
         <div className="overlay" onClick={props.HandleClick}>
             <div className='central'>
                 <div className="relative h-[35vh] overflow-y-scroll" onClick={(e) => e.stopPropagation()}>
-                            {isLoading && <p>Load comments...</p>}
+                            {isLoading && (
+                                <>
+                                    <CommentSkeleton/>
+                                    <CommentSkeleton/>
+                                    <CommentSkeleton/>
+                                </>
+                            )}
                     {
                         data != undefined && (
                         <>
