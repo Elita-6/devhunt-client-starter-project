@@ -1,8 +1,6 @@
 import React , {useCallback , useState} from "react";
-
-import {useFetchAllTag} from "@/app/dashboard/discussions/_hooks/post_hooks";
 import SelectionInput , {SelectableItem} from "@/app/dashboard/profiles/_components/multi_select_input";
-import {useFetchAllSkill} from "@/app/dashboard/profiles/_hooks/profile_hook";
+import { useFetchAllTech} from "@/app/dashboard/profiles/_hooks/profile_hook";
 
 
 
@@ -10,7 +8,7 @@ import {useFetchAllSkill} from "@/app/dashboard/profiles/_hooks/profile_hook";
 
 export default function SkillSelectionInput({onSelectedTags, onRemoveTag, tags}: {onSelectedTags: (tag: SelectableItem) => void, onRemoveTag:(tag: SelectableItem) => void,tags: SelectableItem[]}) {
     const [query, setQuery] = useState<string>("");
-    const {data, isLoading, isSuccess} = useFetchAllSkill(query);
+    const {data, isLoading, isSuccess} = useFetchAllTech(query);
 
     const handleSelectedTag = (selectedTag: SelectableItem) => {
         onSelectedTags(selectedTag)
@@ -23,12 +21,11 @@ export default function SkillSelectionInput({onSelectedTags, onRemoveTag, tags}:
     const handleSearchInput = (e: React.ChangeEvent<HTMLInputElement> ) => {
         setQuery(e.target.value)
     }
-
     return (
         <React.Fragment>
             <SelectionInput
                 label=""
-                helperText="Choose tags (up to 5) so readers know what your blog is about "
+                helperText="Search new skills "
                 selectedItems={tags}
                 onItemSelect={handleSelectedTag}
                 onItemRemove={handleCancelClick}
@@ -36,7 +33,7 @@ export default function SkillSelectionInput({onSelectedTags, onRemoveTag, tags}:
                 searchQuery={query}
                 isLoading={isLoading}
                 isSuccess={isSuccess}
-                searchResults={data?.data.result}
+                searchResults={data?.data}
             />
         </React.Fragment>
     )

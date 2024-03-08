@@ -1,50 +1,48 @@
-import {useMutation, useQuery, useQueryClient} from "react-query";
-import {profileService} from "@/app/dashboard/profiles/_services/profile_service";
+import { useMutation, useQuery, useQueryClient } from "react-query";
+import { profileService } from "@/app/dashboard/profiles/_services/profile_service";
+import { techService } from "@/app/dashboard/profiles/_services/tech_service";
+import { userService } from "@/app/dashboard/profiles/_services/user_service";
 
 
-export  const useCreateExample= ()=>{
-    const queryClient = useQueryClient()
-    return useMutation(
-        {
-            mutationKey:['example'],
-            //mutationFn: (exampleToCreate:IExampleDto)=> profileService.createProfile(exampleToCreate),
-            onSuccess: async ()=>{
-                await queryClient.resetQueries(['example'])
-                await queryClient.invalidateQueries(['example'])
-            }
-        }
-    )
-}
-export const useFetchAllTech = () =>{
+// tech
+export const useFetchAllTech = (q: string) => {
     return useQuery({
-        queryKey:['tech'],
-        //queryFn:()=> profileService.getAllTechnology()
+        queryKey: ['tech', q],
+        queryFn: () => techService.getAllTechByName(q)
     })
 }
 
-export const useFetchAllSkill =(name: string)=>{
+//user
+export const useFetchAllUser = (level?: string, parcours?: string) => {
     return useQuery({
-        queryKey:['skills'],
+        queryKey: ['users', level, parcours],
+        queryFn: () => userService.getAllUser()
+    })
+}
+
+export const useFetchUserSkill = (userid: string) => {
+    return useQuery({
+        queryKey: ['user_skills', userid],
         //queryFn:()=> profileService.getAllSkillsByName(name)
     })
 }
-export const useUpdateExample=(updateId:string)=>{
+export const useUpdateExample = (updateId: string) => {
     const queryClient = useQueryClient()
     return useMutation({
         /*mutationFn: (example: IExampleDto ) => {},*/
-        onSuccess:async ()=>{
+        onSuccess: async () => {
             await queryClient.invalidateQueries(['example'])
             await queryClient.resetQueries(['example'])
         }
     })
 }
 
-export const useDeleteExample = () =>{
+export const useDeleteExample = () => {
     const queryClient = useQueryClient()
     return useMutation(
         {
             /*mutationFn:(exampleId:string)=> {},*/
-            onSuccess: async () =>{
+            onSuccess: async () => {
                 await queryClient.invalidateQueries(['example'])
                 await queryClient.resetQueries(['example'])
             }

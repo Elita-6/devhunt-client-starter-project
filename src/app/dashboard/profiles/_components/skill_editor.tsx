@@ -4,6 +4,7 @@ import {useState} from "react";
 import {SelectableItem} from "@/app/dashboard/profiles/_components/multi_select_input";
 import {Button} from "@/components/ui/button";
 
+
 interface ISkillEditor {
     skills: SelectableItem[],
     isOpen: boolean,

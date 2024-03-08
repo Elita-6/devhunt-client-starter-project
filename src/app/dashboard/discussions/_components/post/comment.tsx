@@ -1,38 +1,16 @@
 "use client"
 import React from 'react';
-import {FaCommentAlt} from "react-icons/fa";
-import {useFetchComment} from "@/app/dashboard/discussions/_hooks/post_hooks";
+import { FaCommentAlt } from "react-icons/fa";
+import { useFetchComment } from "@/app/dashboard/discussions/_hooks/post_hooks";
 import CommentContainer from "@/app/dashboard/discussions/_components/post/comment_container";
 
-const comments= [
-    {
-        content: "Great post!",
-        user: {
-            userId: "2",
-            userName: "Jane Smith",
-            firstName: "Alice Johnson",
-            profileUrl: "https://example.com/profile"
-        },
-        dateComment: "2024-03-06"
-    },
-    {
-        content: "I agree!",
-        user: {
-            userId: "3",
-            userName: "Alice Johnson",
-            firstName: "Alice Johnson",
-            profileUrl: "https://example.com/profile"
-        },
-        dateComment: "2024-03-06"
-    }
-]
-const Comment = ({postId,HandleClick,isReply,comment}:{postId:string,HandleClick:()=>void,isReply:boolean,comment:number}) => {
-    const {data,isLoading}= useFetchComment(postId)
+const Comment = ({ postId, HandleClick, isReply, comment }: { postId: string, HandleClick: () => void, isReply: boolean, comment: number }) => {
+    const { data, isLoading } = useFetchComment(postId)
     return (
         <>
             {
                 isReply && (
-                    <CommentContainer comments={comments} postId={postId}HandleClick={HandleClick}/>
+                    <CommentContainer postId={postId} HandleClick={HandleClick} />
                 )
             }
             <button onClick={HandleClick} className="flex space-x-3 items-center">
