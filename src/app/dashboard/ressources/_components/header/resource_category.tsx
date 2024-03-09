@@ -10,25 +10,25 @@ const ResourceCategory = () => {
         {
             title:"video",
             icon: <CiVideoOn />,
-            number:46,
+            number:0,
             color:""
         },
         {
             title:"pdf",
             icon: <FaRegFilePdf />,
-            number:32,
+            number:1,
             color:""
         },
         {
             title:"useful link",
             icon: <FaLink />,
-            number:24,
+            number:1,
             color:""
         },
         {
             title:"roadmap",
             icon: <RiRoadMapLine />,
-            number:24,
+            number:1,
             color:""
         },
     ]
