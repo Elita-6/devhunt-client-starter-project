@@ -36,11 +36,11 @@ const ResourceForm = (props:Props) => {
     } = useForm<IFormInput>()
     const onSubmit:SubmitHandler<IFormInput> = async (data)=>{
         const tagIds = tags.map(tag => tag.tagId);
-        mutate({
-            resourceName:data.resourceName,
-            tags:tagIds,
-            file:data.file
-        })
+        const formData = new FormData();
+        formData.append('tags', JSON.stringify(tagIds));
+        formData.append('ressourceName', data.resourceName);
+        formData.append('file', data.file[0]);
+        mutate(formData)
         console.log(data)
         if (isSuccess){
             props.HandleClick()
