@@ -3,6 +3,7 @@ import {SubmitHandler, useForm} from "react-hook-form";
 import TagSelectionInput from "@/app/dashboard/discussions/_components/tag_selection";
 import { ITag } from '../_services/definition';
 import {useCreatePost} from "@/app/dashboard/discussions/_hooks/post_hooks";
+import {CircularProgress} from "@mui/material";
 
 interface IFormInput{
     postTitle: string
@@ -67,7 +68,17 @@ const CreatePostForm = (props:Props) => {
                 disabled={isLoading}
 
             >
-                Create post
+                {
+                    isLoading ?(
+                            <div className="flex items-center space-x-2">
+                                <span className="pl-3 text-white text-xs">Loading...</span>
+                                <CircularProgress size={15} />
+                            </div>
+                    ):
+                        <>
+                            Create post
+                        </>
+                }
             </button>
             <button type='reset' onClick={props.HandleClick}  className='bg-[#F2F2F2] w-full text-[#0F172A] py-3'>
                 Cancel
