@@ -5,13 +5,8 @@ import {RESOURCE_ENDPOINTS} from "@/app/dashboard/ressources/_services/endpoint"
 
 
 class ResourceService{
-    public createResource(resourceToCreate: IResourceDto){
-        const formData = new FormData();
-        formData.append('tags', JSON.stringify(resourceToCreate.tags));
-        formData.append('ressourceName', resourceToCreate.resourceName);
-        formData.append('file', resourceToCreate.file);
-
-        return httpClient.post(RESOURCE_ENDPOINTS.CREATE,formData)
+    public createResource(resourceToCreate: FormData){
+        return httpClient.post(RESOURCE_ENDPOINTS.CREATE,resourceToCreate)
     }
     public getExampleByExampleId(exampleId: string){
         return httpClient.get(RESOURCE_ENDPOINTS.GET.replace("id",exampleId))
