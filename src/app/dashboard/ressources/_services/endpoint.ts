@@ -1,6 +1,6 @@
 export enum RESOURCE_ENDPOINTS{
-    CREATE = "/resource",
-    GET_ALL="/resource",
+    CREATE = "/ressource",
+    GET_ALL="/ressource",
     GET="/example/:id",
     UPDATE="/example/:id",
     DELETE="/example/:id",

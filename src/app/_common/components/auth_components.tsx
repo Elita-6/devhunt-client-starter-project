@@ -11,9 +11,7 @@ export const AuthWrapper = () => {
         const data = session.data.user;
         return (
             <div className='w-full flex items-center justify-center gap-5'>
-                <Link href="/dashboard">
-                    <CustomAvatar image_url={data?.image!} username={data?.name!} style='h-12 w-12' />
-                </Link>
+                <CustomAvatar image_url={data?.image!} username={data?.name!} style='h-12 w-12' />
                 <div className="flex flex-col ">
                     <span className="text-xl font-medium">{data?.name}</span>
                     <span className="text-gray-700">{data?.email}</span>
