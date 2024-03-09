@@ -30,7 +30,7 @@ const BolidaDiscuContainer = (props:Props) => {
                 </div>
                 {
                     session.data && (
-                         <p className="text-center">Hey {session.data?.user.name!.split(" ")[0]} .How can I am your AI assistant </p>
+                         <p className="text-center">Hey {session.data?.user.name!.split(" ")[0]} .How can I assist you today </p>
                     )
                 }
             </div>
