@@ -2,6 +2,7 @@
 import React from 'react';
 import { GoDownload } from "react-icons/go";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Technology {
     name: string;
@@ -45,12 +46,12 @@ interface TableRowProps {
                 <td>{timeAgo}</td>
                 <td className=''>
                     <div className='flex space-x-2 justify-center'>
-                        {onDownload && (
-                            <button className="text-[#0000FF] flex items-center space-x-2" onClick={onDownload}>
+                        <Link href="">
+                            <button className="text-[#0000FF] flex items-center space-x-2" >
                                 <GoDownload />
                                 <span className="text-sm"> Downloads</span>
                             </button>
-                        )}
+                        </Link>
                     </div>
                 </td>
             </tr>
