@@ -8,9 +8,6 @@ const TableHeader = () => {
                     Name
                 </th>
                 <th className='font-normal opacity-75'>
-                    Title
-                </th>
-                <th className='font-normal opacity-75'>
                     Tags
                 </th>
                 <th className='font-normal opacity-75'>

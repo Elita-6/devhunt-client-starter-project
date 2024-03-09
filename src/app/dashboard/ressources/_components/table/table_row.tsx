@@ -28,11 +28,15 @@ interface TableRowProps {
                                                }) => {
         return (
             <tr className='text-center h-[6vh] border-b-dark-tremor-content border-b-[0.2px] border-opacity-20 '>
-                <td>{image && <Image src={image} alt="Table Row Image" width={40} height={40}/>}</td>
-                <td>{title}</td>
+                <td>
+                    <div className="flex space-x-2 items-center">
+                        {image && <Image src={image} alt="Table Row Image" width={40} height={40}/>}
+                        <p>{title}</p>
+                    </div>
+                </td>
                 <td className=' flex justify-center my-2 space-x-2'>
                     {technologies.map((tech, index) => (
-                        <button key={index} className="bg-[#CBD5E1] px-3 py-1 rounded-lg bg-opacity-65 text-[#0000FF]">
+                        <button key={index} className="bg-[#CBD5E1] px-3 py-1 text-sm rounded-lg bg-opacity-65 text-[#0000FF]">
                             {tech.name}
                         </button>
                     ))}
