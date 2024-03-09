@@ -11,10 +11,10 @@ const TableHeader = () => {
                     Tags
                 </th>
                 <th className='font-normal opacity-75'>
-                    Created by
+                    Created
                 </th>
                 <th className='font-normal opacity-75'>
-                    Created
+                    Created by
                 </th>
                 <th className='font-normal opacity-75'>
                     Action
