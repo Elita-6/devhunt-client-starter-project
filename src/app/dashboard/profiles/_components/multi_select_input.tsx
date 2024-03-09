@@ -4,10 +4,9 @@ import SelectedTag from "./selected_box";
 // import {normalize} from "@/app/blog/lib/utils";
 
 export interface SelectableItem{
-    tecnologyId: string,
+    technologyId: string,
     technologyDesignation: string
 }
-
 
 type TagSelectionInputProps<T> = {
     label: string;
@@ -42,6 +41,7 @@ export default function SelectionInput<T extends SelectableItem>({
             <div className="w-full flex flex-wrap form-input bg-[#E8F4FC] py-3 px-2 gap-1">
                 {selectedItems.length !== 0 &&
                     selectedItems.map((item) => (
+
                         <SelectedTag key={item.technologyDesignation} selectedItem={item} onClick={() =>onItemRemove(item)} />
                     ))}
                 <div className="relative flex items-center">

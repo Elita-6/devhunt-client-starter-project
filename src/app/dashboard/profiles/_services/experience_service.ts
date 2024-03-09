@@ -1,7 +1,7 @@
 import {httpClient} from "@/lib/axios";
 import {EXPERIENCE_ENDPOINTS} from "@/app/dashboard/profiles/_services/endpoint";
 
-interface CreateExperienceDTO {
+export interface CreateExperienceDTO {
     experiencePost: string,
     experienceDescription: string,
     experienceLocal: string,
@@ -38,4 +38,4 @@ class ExperienceService{
         return httpClient.get(EXPERIENCE_ENDPOINTS.DELETE.replace("id",expId))
     }
 }
-export const userService = new ExperienceService()
+export const experienceService = new ExperienceService();

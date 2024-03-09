@@ -1,12 +1,12 @@
 import {httpClient} from "@/lib/axios";
-import {EXPERIENCE_ENDPOINTS} from "@/app/dashboard/profiles/_services/endpoint";
+import {EXPERIENCE_ENDPOINTS , PROJECT_ENDPOINT} from "@/app/dashboard/profiles/_services/endpoint";
 
-interface CreateProjectDTO {
+export interface CreateProjectDTO {
     title: string,
     projectDescription: string,
     imageUrl?: string,
     startDate: string,
-    userId: string
+    endDate: string
 }
 export interface IProject extends CreateProjectDTO{
     projectId: string
@@ -15,8 +15,8 @@ interface UpdateProjectDTO {
 
 }
 class ProjectService{
-    public createExperience(experienceCreate:CreateProjectDTO ){
-        return httpClient.post(EXPERIENCE_ENDPOINTS.CREATE,experienceCreate)
+    public createProject(projectCreate:CreateProjectDTO ){
+        return httpClient.post(PROJECT_ENDPOINT.CREATE,projectCreate)
     }
     public getExperienceById(experienceId: string){
         return httpClient.get(EXPERIENCE_ENDPOINTS.GET.replace("id",experienceId))
@@ -32,4 +32,4 @@ class ProjectService{
         return httpClient.get(EXPERIENCE_ENDPOINTS.DELETE.replace("id",expId))
     }
 }
-export const userService = new ProjectService()
+export const projectService = new ProjectService()
