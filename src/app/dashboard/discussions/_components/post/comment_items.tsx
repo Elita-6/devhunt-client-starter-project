@@ -16,7 +16,7 @@ const CommentItems = (props:Props) => {
     return (
         <div data-idcomment='idcomment' className="flex justify-between items-center dark:text-[#444] pr-3">
             <div className=" p-3 flex items-center space-x-2">
-                <CustomAvatar image_url={props.user.profileUrl!}/>
+                <CustomAvatar userId={props.user.userId!} username={props.user.userName!} image_url={props.user.profileUrl!}/>
                 <div className="flex flex-col space-y-1">
                     <div className="flex space-x-2">
                         <p className='font-semibold hover:underline'>

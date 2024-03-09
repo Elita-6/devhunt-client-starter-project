@@ -1,19 +1,21 @@
 import React, {useState} from 'react';
-import {SubmitHandler, useForm} from "react-hook-form";
 import TagSelectionInput from "@/app/dashboard/discussions/_components/tag_selection";
-import { ITag } from '../_services/definition';
-import {useCreatePost} from "@/app/dashboard/discussions/_hooks/post_hooks";
+import {SubmitHandler, useForm} from "react-hook-form";
+import {ITag} from "@/app/dashboard/discussions/_services/definition";
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
+import {useCreateResource} from "@/app/dashboard/ressources/_hooks/resource_hook";
 import {CircularProgress} from "@mui/material";
 
 interface IFormInput{
-    postTitle: string
-    postDescription:string
+    resourceName:string
+    file: File[]
 }
-interface Props {
-    HandleClick:()=>void
+interface  Props{
+    HandleClick: ()=>void
 }
-const CreatePostForm = (props:Props) => {
-    const{mutate,isSuccess,isLoading}=useCreatePost()
+const ResourceForm = (props:Props) => {
+    const {mutate,isLoading,isSuccess}= useCreateResource()
     const [tags, setTags] = useState<ITag[]>([]);
     const handleRemoveTag = (tagToRemove: ITag) => {
         setTags(prevState => prevState.filter(tag => tag.tagId !== tagToRemove.tagId))
@@ -25,7 +27,6 @@ const CreatePostForm = (props:Props) => {
         }
         setTags(prevState => [...prevState,selectedTag])
     }
-
     const {
         register,
         handleSubmit,
@@ -35,37 +36,36 @@ const CreatePostForm = (props:Props) => {
     } = useForm<IFormInput>()
     const onSubmit:SubmitHandler<IFormInput> = async (data)=>{
         const tagIds = tags.map(tag => tag.tagId);
-        mutate({
-            postTitle:data.postTitle,
-            postDescription:data.postDescription,
-            tags:tagIds
-        })
-            resetField("postTitle")
-            resetField("postDescription")
+        const formData = new FormData();
+        formData.append('tags', JSON.stringify(tagIds));
+        formData.append('ressourceName', data.resourceName);
+        formData.append('file', data.file[0]);
+        mutate(formData)
+        console.log(data)
         if (isSuccess){
-        props.HandleClick()
+            props.HandleClick()
+        resetField("resourceName")
+        resetField("file")
             console.log("success")
         }
     }
     return (
         <form className='flex flex-col space-y-3 w-full p-3'  onSubmit={handleSubmit(onSubmit)}>
             <div className="grid w-full  items-center gap-1.5">
-                <label htmlFor='design' className="dark:text-black">Title</label>
+                <label htmlFor='rent' className="dark:text-black">Name</label>
                 <input type='text'  placeholder='type your title here'
-                       className='outline-none dark:text-black p-2 input bg-[#E8F4FC]'  {...register("postTitle",{required:true})} />
-                {errors.postTitle && <span className='text-red-600'> This field is required</span>}
+                       className='outline-none p-2 text-black input  bg-[#E8F4FC]' {...register("resourceName",{required:true})} />
+                {errors.resourceName && <span className='text-red-600'> This field is required</span>}
             </div>
-            <div className="grid w-full  items-center gap-1.5">
-                <label htmlFor='rent' className="dark:text-black">Description</label>
-                <input type='text'  placeholder='type your title here'
-                       className='outline-none p-2 text-black input  bg-[#E8F4FC]' {...register("postDescription",{required:true})} />
-                {errors.postDescription && <span className='text-red-600'> This field is required</span>}
+            <div className="grid w-full max-w-sm items-center gap-1.5">
+                <Label htmlFor="picture">File</Label>
+                <Input id="picture" type="file" {...register("file")} />
             </div>
             <div className="w-full">
                 <TagSelectionInput onSelectedTags={handleSelectTags} onRemoveTag={handleRemoveTag} tags={tags}/>
             </div>
             <button type='submit' className='bg-[#0000FF] w-full text-white py-3'
-                disabled={isLoading}
+                    disabled={isLoading}
 
             >
                 {
@@ -76,7 +76,7 @@ const CreatePostForm = (props:Props) => {
                             </div>
                     ):
                         <>
-                            Create post
+                            Upload resource
                         </>
                 }
             </button>
@@ -87,4 +87,4 @@ const CreatePostForm = (props:Props) => {
     );
 };
 
-export default CreatePostForm;
+export default ResourceForm;

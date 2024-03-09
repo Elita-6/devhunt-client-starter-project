@@ -18,7 +18,7 @@ const PostItem = (props:Partial<IPost>) => {
         <>
             <div className="flex space-x-3 w-full mt-5">
                 <div className="flex flex-col justify-start">
-                    <CustomAvatar image_url={props.user?.profileUrl!} style="w-[3vw] h-[6vh]"/>
+                    <CustomAvatar userId={props.user?.userId!} username={props.user?.firstName!} image_url={props.user?.profileUrl!} style="w-[3vw] h-[6vh]"/>
                 </div>
                 <div className="flex flex-col mt-2 space-y-3 w-full">
                     <div className="flex space-x-3 w-full">
@@ -65,7 +65,7 @@ const PostItem = (props:Partial<IPost>) => {
                                 props.reaction ? (
                                     <Reaction postId={props.postId!} reaction={props.reaction?.length!}/>
                                 ):(
-                                    <Reaction postId={props.postId!} reaction={10}/>
+                                    <Reaction postId={props.postId!} reaction={0}/>
                                 )
                             }
                             <Comment postId={props.postId!} comment={props.comments?.length!} isReply={isReply} HandleClick={HandleClickReply} firstName={props.user?.firstName!} username={props.user?.userName!} profileUrl={props.user?.profileUrl!} postTitle={format(date, 'MMM dd, HH:mm a')}/>

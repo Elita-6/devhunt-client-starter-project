@@ -7,6 +7,7 @@ import {SubmitHandler, useForm} from "react-hook-form";
 import {useCreateComment, useFetchComment} from "@/app/dashboard/discussions/_hooks/post_hooks";
 import CommentSkeleton from "@/app/dashboard/discussions/_components/post/comment_skeleton";
 import CommentBar from "@/app/dashboard/discussions/_components/post/comment_bar";
+import {CircularProgress} from "@mui/material";
 interface Props{
     HandleClick:()=>void
     postId:string,
@@ -73,7 +74,16 @@ const CommentContainer = (props:Props) => {
                     <form onSubmit={handleSubmit(onSubmit)}  className=" my-5 px-4 pt-3 flex justify-between space-x-6">
                         <input type="text" placeholder="Type your message here" className="outline-none dark:text-[#444] p-2 input bg-[#E8F4FC] w-[25vw]" {...register("comment", { required: true })} />
                         <button type="submit" disabled={isLoading} className="bg-[#0000FF] p-2 rounded-lg">
-                            <Send className="text-white" />
+                            {
+                                isLoading ? (
+                                    <div className="flex items-center space-x-2">
+                                        <span className="pl-3 text-white text-xs">Loading...</span>
+                                        <CircularProgress size={15} />
+                                    </div>
+                                ):(
+                                    <Send className="text-white" />
+                                )
+                            }
                         </button>
                     </form>
                     <div className='' ref={scrollref}/>
