@@ -2,11 +2,23 @@ import {httpClient} from "@/lib/axios";
 import {EXPERIENCE_ENDPOINTS} from "@/app/dashboard/profiles/_services/endpoint";
 
 interface CreateExperienceDTO {
-
+    experiencePost: string,
+    experienceDescription: string,
+    experienceLocal: string,
+    dateStart: Date,
+    dateEnd: Date,
+    profileId: string
 }
-
-interface UpdateExperienceDTO {
-
+export interface IExperience  extends CreateExperienceDTO{
+    experienceId: string
+}
+interface UpdateExperienceDTO{
+    experiencePost?: string,
+    experienceDescription?: string,
+    experienceLocal?: string,
+    dateStart?: Date,
+    dateEnd?: Date,
+    profileId?: string
 }
 class ExperienceService{
     public createExperience(experienceCreate:CreateExperienceDTO ){

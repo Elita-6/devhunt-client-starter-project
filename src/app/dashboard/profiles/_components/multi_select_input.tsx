@@ -4,8 +4,8 @@ import SelectedTag from "./selected_box";
 // import {normalize} from "@/app/blog/lib/utils";
 
 export interface SelectableItem{
-    skill_id: string,
-    skill_name: string
+    tecnologyId: string,
+    technologyDesignation: string
 }
 
 
@@ -42,7 +42,7 @@ export default function SelectionInput<T extends SelectableItem>({
             <div className="w-full flex flex-wrap form-input bg-[#E8F4FC] py-3 px-2 gap-1">
                 {selectedItems.length !== 0 &&
                     selectedItems.map((item) => (
-                        <SelectedTag key={item.skill_name} selectedItem={item} onClick={() =>onItemRemove(item)} />
+                        <SelectedTag key={item.technologyDesignation} selectedItem={item} onClick={() =>onItemRemove(item)} />
                     ))}
                 <div className="relative flex items-center">
                     <input
@@ -66,11 +66,11 @@ export default function SelectionInput<T extends SelectableItem>({
                                 searchResults.length > 0 ? (
                                     searchResults.map((item: T) => (
                                         <div
-                                            key={item.skill_name}
+                                            key={item.technologyDesignation}
                                             className="hover:bg-blue-500 hover:text-white p-2 cursor-pointer dark:text-black dark:hover:text-white"
                                             onClick={() => onItemSelect(item)}
                                         >
-                                            {item.skill_name}
+                                            {item.technologyDesignation}
                                         </div>
                                     ))
                                 ) : (

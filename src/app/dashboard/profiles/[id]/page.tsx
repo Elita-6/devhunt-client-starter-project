@@ -8,6 +8,8 @@ import {SocialLInk} from "@/app/dashboard/profiles/_components/SocialLInk";
 import {ProjectWrapper} from "@/app/dashboard/profiles/_components/project/project_wrapper";
 import ExperienceWrapper from "@/app/dashboard/profiles/_components/project/experience_wrapper";
 import {useFetchUserProfile} from "@/app/dashboard/profiles/_hooks/profile_hook";
+import {ProfileSkeleton} from "@/app/dashboard/profiles/_components/skelleton/profiles.skeleton";
+import {ProfileDetailsSkeleton} from "@/app/dashboard/profiles/_components/skelleton/profile_details_skeleton";
 
 
 interface IUser {
@@ -36,14 +38,15 @@ interface UserProfile {
 }
 export default function ProfileDetailPage({params}: {params: {id: string}}) {
     const user_id = params.id;
-    const {data: profile, isLoading, isError} = useFetchUserProfile(user_id);
+    const {data: profile, isLoading, isError, isSuccess} = useFetchUserProfile(user_id);
     let user: IUser = {} as IUser ;
     let socialLinks = [];
     let profileId;
 
-    if(profile?.data){
+    if(profile?.data && isSuccess){
         profileId = profile.data.profileId
         user = profile.data.user
+        console.log(profile.data)
         user.userName = profile.data.user.userName !== null ? profile.data.user.userName : profile.data.user.firstName
 
         if(profile.data.linkGithub){
@@ -58,10 +61,10 @@ export default function ProfileDetailPage({params}: {params: {id: string}}) {
     }
 
     if(isLoading){
-        return <div>Loading..</div>
+        return <ProfileDetailsSkeleton />
     }
     if(isError) {
-        return <div>Error..</div>
+        return <ProfileDetailsSkeleton />
     }
     return(
         <div className="w-full h-full px-24">

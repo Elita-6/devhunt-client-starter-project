@@ -12,7 +12,7 @@ type SelectedBoxProps<T> = {
 function SelectedBox<T extends SelectableItem>({ selectedItem, onClick }: SelectedBoxProps<T>) {
     return (
         <div className="flex justify-between items-center gap-2 bg-white py-1 px-2 text-gray-700 font-medium">
-            <span>{selectedItem.skill_name}</span>
+            <span>{selectedItem.technologyDesignation}</span>
             <button onClick={onClick} > <GiCancel /> </button>
         </div>
     );

@@ -11,3 +11,8 @@ export interface ProfileDTO {
     linkLinkedin?: string,
     level?: string
 }
+
+export interface IUpdateUserSkillsDTo {
+    added: string[],
+    removed: string[]
+}
