@@ -9,7 +9,7 @@ class ResourceService{
         const formData = new FormData();
         formData.append('tags', JSON.stringify(resourceToCreate.tags));
         formData.append('ressourceName', resourceToCreate.resourceName);
-        formData.append('file', resourceToCreate.file);
+        formData.append('file', resourceToCreate.file[0]);
 
         return httpClient.post(RESOURCE_ENDPOINTS.CREATE,formData)
     }

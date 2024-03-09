@@ -9,7 +9,7 @@ import {CircularProgress} from "@mui/material";
 
 interface IFormInput{
     resourceName:string
-    file: File
+    file: File[]
 }
 interface  Props{
     HandleClick: ()=>void
