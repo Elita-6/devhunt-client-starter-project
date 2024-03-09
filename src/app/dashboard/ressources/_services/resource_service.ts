@@ -1,7 +1,7 @@
 import {httpClient} from "@/lib/axios";
 import {IExampleDto} from "@/app/feat-exemple/_services/definition";
-import {RESOURCE_ENDPOINTS} from "@/app/feat-exemple/_services/endpoint";
 import {IResourceDto} from "@/app/dashboard/ressources/_services/definition";
+import {RESOURCE_ENDPOINTS} from "@/app/dashboard/ressources/_services/endpoint";
 
 
 class ResourceService{
