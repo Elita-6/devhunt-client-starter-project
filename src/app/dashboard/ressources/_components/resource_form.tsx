@@ -69,10 +69,10 @@ const ResourceForm = (props:Props) => {
             >
                 {
                     isLoading ?(
-                        <>
-                            <CircularProgress />
-                            <span className="pl-3">Loading...</span>
-                        </>
+                            <div className="flex items-center space-x-2">
+                                <span className="pl-3 text-white text-xs">Loading...</span>
+                                <CircularProgress size={15} />
+                            </div>
                     ):
                         <>
                             Upload resource
