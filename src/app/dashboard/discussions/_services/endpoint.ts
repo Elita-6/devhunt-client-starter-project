@@ -1,5 +1,5 @@
 export enum POST_ENDPOINTS{
-    CREATE = "/post/id",
+    CREATE = "/post",
     GET_ALL="/post",
     GET="/post/id",
     UPDATE="/post/id",

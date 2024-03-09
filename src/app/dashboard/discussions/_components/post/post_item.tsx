@@ -18,7 +18,7 @@ const PostItem = (props:Partial<IPost>) => {
         <>
             <div className="flex space-x-3 w-full mt-5">
                 <div className="flex flex-col justify-start">
-                    <CustomAvatar image_url={props.user?.profileUrl!} style="w-[3vw] h-[6vh]"/>
+                    <CustomAvatar userId={props.user?.userId!} username={props.user?.firstName!} image_url={props.user?.profileUrl!} style="w-[3vw] h-[6vh]"/>
                 </div>
                 <div className="flex flex-col mt-2 space-y-3 w-full">
                     <div className="flex space-x-3 w-full">

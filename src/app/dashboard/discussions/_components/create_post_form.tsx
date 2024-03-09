@@ -39,12 +39,10 @@ const CreatePostForm = (props:Props) => {
             postDescription:data.postDescription,
             tags:tagIds
         })
-        props.HandleClick()
+            resetField("postTitle")
+            resetField("postDescription")
         if (isSuccess){
-        resetField("postDescription")
-        resetField("postTitle")
-            props.HandleClick()
-            reset()
+        props.HandleClick()
             console.log("success")
         }
     }
