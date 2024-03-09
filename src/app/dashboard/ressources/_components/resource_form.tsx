@@ -41,23 +41,24 @@ const ResourceForm = (props:Props) => {
             tags:tagIds,
             file:data.file
         })
-        resetField("resourceName")
-        resetField("file")
+        console.log(data)
         if (isSuccess){
             props.HandleClick()
+        resetField("resourceName")
+        resetField("file")
             console.log("success")
         }
     }
     return (
         <form className='flex flex-col space-y-3 w-full p-3'  onSubmit={handleSubmit(onSubmit)}>
             <div className="grid w-full  items-center gap-1.5">
-                <label htmlFor='rent' className="dark:text-black">Description</label>
+                <label htmlFor='rent' className="dark:text-black">Name</label>
                 <input type='text'  placeholder='type your title here'
                        className='outline-none p-2 text-black input  bg-[#E8F4FC]' {...register("resourceName",{required:true})} />
                 {errors.resourceName && <span className='text-red-600'> This field is required</span>}
             </div>
             <div className="grid w-full max-w-sm items-center gap-1.5">
-                <Label htmlFor="picture">Picture</Label>
+                <Label htmlFor="picture">File</Label>
                 <Input id="picture" type="file" {...register("file")} />
             </div>
             <div className="w-full">

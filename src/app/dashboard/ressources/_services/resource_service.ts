@@ -8,7 +8,7 @@ class ResourceService{
     public createResource(resourceToCreate: IResourceDto){
         const formData = new FormData();
         formData.append('tags', JSON.stringify(resourceToCreate.tags));
-        formData.append('resourceName', resourceToCreate.resourceName);
+        formData.append('ressourceName', resourceToCreate.resourceName);
         formData.append('file', resourceToCreate.file);
 
         return httpClient.post(RESOURCE_ENDPOINTS.CREATE,formData)
