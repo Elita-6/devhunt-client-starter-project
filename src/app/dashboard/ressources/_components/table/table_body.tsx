@@ -3,6 +3,7 @@ import React from 'react';
 import { GoDownload } from "react-icons/go";
 import TableRow from "@/app/dashboard/ressources/_components/table/table_row";
 import TableHeader from "@/app/dashboard/ressources/_components/table/table_header";
+import {useFetchResource} from "@/app/dashboard/ressources/_hooks/resource_hook";
 
 
 interface Technology {
@@ -20,7 +21,8 @@ interface TableRowProps {
 }
 
 const TableBody: React.FC = () => {
-    const data: TableRowProps[] = [
+    const{data,isSuccess,isLoading}=useFetchResource()
+    const dataT: TableRowProps[] = [
         {
             image: "https://via.placeholder.com/150",
             title: "Application de gestion des tâches",
@@ -63,7 +65,7 @@ const TableBody: React.FC = () => {
         <table>
             <TableHeader/>
             <tbody>
-            {data.map((item, index) => (
+            {dataT.map((item, index) => (
                 <TableRow
                     key={index}
                     image={item.image}
