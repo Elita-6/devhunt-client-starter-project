@@ -2,9 +2,15 @@ import {httpClient} from "@/lib/axios";
 import {EXPERIENCE_ENDPOINTS} from "@/app/dashboard/profiles/_services/endpoint";
 
 interface CreateProjectDTO {
-
+    title: string,
+    projectDescription: string,
+    imageUrl?: string,
+    startDate: string,
+    userId: string
 }
-
+export interface IProject extends CreateProjectDTO{
+    projectId: string
+}
 interface UpdateProjectDTO {
 
 }
