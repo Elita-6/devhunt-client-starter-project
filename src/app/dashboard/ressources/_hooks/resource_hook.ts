@@ -17,40 +17,11 @@ export  const useCreateResource= ()=>{
         }
     )
 }
-export const useFetchExampleById = (exampleId:string) =>{
+
+export const useFetchResource =()=>{
     return useQuery({
-        queryKey:['example'],
-        queryFn:()=> exampleService.getExampleByExampleId(exampleId)
+        queryKey:['resource'],
+        queryFn:()=> resourceService.getAllResource()
     })
 }
 
-export const useFetchAllExample =()=>{
-    return useQuery({
-        queryKey:['example'],
-        queryFn:()=> exampleService.getAllExample()
-    })
-}
-export const useUpdateExample=(updateId:string)=>{
-    const queryClient = useQueryClient()
-    return useMutation({
-        mutationFn: (example: IExampleDto ) => exampleService.updateExample(example,updateId),
-        onSuccess:async ()=>{
-            await queryClient.invalidateQueries(['example'])
-            await queryClient.resetQueries(['example'])
-        }
-    })
-}
-
-export const useDeleteExample = () =>{
-    const queryClient = useQueryClient()
-    return useMutation(
-        {
-            mutationKey:['delete'],
-            mutationFn:(exampleId:string)=> exampleService.deleteExampleByExampleId(exampleId),
-            onSuccess: async () =>{
-                await queryClient.invalidateQueries(['example'])
-                await queryClient.resetQueries(['example'])
-            }
-        }
-    )
-}

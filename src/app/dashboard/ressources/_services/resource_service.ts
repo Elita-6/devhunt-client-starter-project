@@ -17,7 +17,7 @@ class ResourceService{
         return httpClient.get(RESOURCE_ENDPOINTS.GET.replace("id",exampleId))
     }
 
-    public getAllExample(){
+    public getAllResource(){
         return httpClient.get(RESOURCE_ENDPOINTS.GET_ALL)
     }
     public updateExample(exampleToUpdate: IExampleDto,id:string){
