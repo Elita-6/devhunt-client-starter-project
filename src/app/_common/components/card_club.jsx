@@ -1,4 +1,4 @@
-import {HoverEffect} from "./card-hover-effect";
+import { HoverEffect } from "./card-hover-effect";
 
 
 export function CardHoverEffectDemo() {
@@ -10,39 +10,39 @@ export function CardHoverEffectDemo() {
 }
 export const projects = [
   {
-    title: "Stripe",
+    title: "AEENI",
     description:
-      "A technology company that builds economic infrastructure for the internet.",
-    link: "https://stripe.com",
+      "The ENI Student Association advocates for student interests and community at the National School of Computer Science. It fosters student well-being and engagement through events, academic support, and professional development opportunities.",
+    link: "https://web.facebook.com/groups/162416697294083",
   },
   {
-    title: "Netflix",
+    title: "C2E",
     description:
-      "A streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.",
-    link: "https://netflix.com",
+      "The mission of the members and participants at C2E is to collaborate on discovering new technologies and supporting each other in mastering them.",
+    link: "https://web.facebook.com/groups/706965416092464",
   },
   {
-    title: "Google",
+    title: "C3LF",
     description:
-      "A multinational technology company that specializes in Internet-related services and products.",
-    link: "https://google.com",
+      "The 'Club Linux et Logiciels Libres de Fianarantsoa' is a dynamic space where students can explore, learn, and collaborate in the field of free software and Linux, while also contributing to the spread of these technologies within their community.",
+    link: "https://web.facebook.com/groups/46262023721",
   },
   {
-    title: "Meta",
+    title: "Cyber security",
     description:
-      "A technology company that focuses on building products that advance Facebook's mission of bringing the world closer together.",
+      "A cybersecurity club provides an environment conducive to learning, practicing, and exchanging ideas in the field of computer security, while also contributing to enhancing resilience against cyber threats.",
     link: "https://meta.com",
   },
   {
-    title: "Amazon",
+    title: "GBUF",
     description:
-      "A multinational technology company focusing on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
-    link: "https://amazon.com",
+      "The GBUF provides students in Fianarantsoa with a space where they can cultivate their faith, develop friendships, and engage in spiritual and social activities that enrich their university experience and encourage them in their spiritual journey.",
+    link: "https://web.facebook.com/profile.php?id=100093498289880",
   },
   {
-    title: "Microsoft",
+    title: "ENI Dance",
     description:
-      "A multinational technology company that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and related services.",
-    link: "https://microsoft.com",
+      "A dance club unites students who share a passion for dance, catering to both novices and experienced dancers. It provides a vibrant setting for self-expression, experimentation with diverse dance styles and routines, and fosters social connections within the university community.",
+    link: "https://web.facebook.com/profile.php?id=100084811088902",
   },
 ];

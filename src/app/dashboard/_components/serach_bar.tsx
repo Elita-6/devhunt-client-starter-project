@@ -21,8 +21,8 @@ import {
 
 const Searchbar = () => {
     return (
-        <Command className="rounded-lg w-[40vh] border-none shadow-none  bg-[#E8F4FC]">
-            <CommandInput placeholder="Type a command or search..." className="bg-[#E8F4FC]"/>
+        <Command className="rounded-lg w-[40vh] border-none shadow-none bg-[#E8F4FC] dark:bg-stone-800">
+            <CommandInput placeholder="Type a command or search..." className="bg-[#E8F4FC] dark:bg-stone-800" />
             {/*<CommandList>*/}
             {/*    <CommandEmpty>No results found.</CommandEmpty>*/}
             {/*    <CommandGroup heading="Suggestions">*/}
