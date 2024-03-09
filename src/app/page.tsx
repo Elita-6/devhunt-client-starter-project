@@ -1,11 +1,13 @@
 import HeroPage from "@/app/_common/components/nomena_hero_page";
 import {BentoGridDemo} from "@/app/_common/components/bento_grid";
+import {CardHoverEffectDemo} from "@/app/_common/components/card_club";
 
 export default function Home() {
   return (
     <div className='flex-col items-center'>
         <HeroPage />
         <BentoGridDemo/>
+        <CardHoverEffectDemo/>
     </div>
     // <main className="flex h-full flex-col items-center justify-between p-24">
     //   <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
