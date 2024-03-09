@@ -10,6 +10,7 @@ import ExperienceWrapper from "@/app/dashboard/profiles/_components/project/expe
 import {useFetchUserProfile} from "@/app/dashboard/profiles/_hooks/profile_hook";
 import {ProfileSkeleton} from "@/app/dashboard/profiles/_components/skelleton/profiles.skeleton";
 import {ProfileDetailsSkeleton} from "@/app/dashboard/profiles/_components/skelleton/profile_details_skeleton";
+import {users} from "@/app/_common/constants/data";
 
 
 interface IUser {
@@ -42,7 +43,6 @@ export default function ProfileDetailPage({params}: {params: {id: string}}) {
     let user: IUser = {} as IUser ;
     let socialLinks = [];
     let profileId;
-
     if(profile?.data && isSuccess){
         profileId = profile.data.profileId
         user = profile.data.user
@@ -78,7 +78,7 @@ export default function ProfileDetailPage({params}: {params: {id: string}}) {
                             <div className=" flex  items-center gap-5">
                                 <Box
                                     icon={<Diamond />}
-                                    label={`${profile?.data.level ?? "not specified"} ${profile?.data.parcour}`}
+                                    label={`${profile?.data.level !=null ? profile.data.level : "L3 IG"} ${profile?.data.parcour}`}
                                 />
                                 {
                                     socialLinks.map(social => (
@@ -91,16 +91,16 @@ export default function ProfileDetailPage({params}: {params: {id: string}}) {
                 </div>
             </div>
             <div className="flex justify-end p-4 z-10">
-                <EditProfile />
+                <EditProfile profileId={profileId} />
+            </div>
+            <SkillsContainer profileId={profileId} />
+
+            <div className="flex flex-col gap-7 w-full">
+                <ExperienceWrapper profileId={profileId} />
+                <ProjectWrapper profileId={profileId}  />
+                *
             </div>
 
-            <SkillsContainer profileId={profileId} />
-            {/*
-            <div className="flex flex-col gap-7 w-full">
-                <ExperienceWrapper user_id={user_id} />
-                <ProjectWrapper user_id={user_id}  />
-            </div>
-            */}
 
         </div>
     )

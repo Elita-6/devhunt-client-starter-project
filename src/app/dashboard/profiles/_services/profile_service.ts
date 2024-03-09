@@ -18,12 +18,17 @@ class ProfileService{
     public updateUserSkills(profileId: string, added: string[], removed: string[] ) {
         return httpClient.post(SKILLS_ENDPOINT.UPDATE_USER_SKILLS.replace("profileId", profileId),{added, removed})
     }
-    public updateProfile(profileUpdate: ProfileDTO,id:string){
-        return httpClient.put(PROFILE_ENDPOINTS.UPDATE.replace("userid",id),profileUpdate)
+    public updateProfile(profileUpdate: ProfileDTO,profileId:string){
+        return httpClient.put(PROFILE_ENDPOINTS.UPDATE.replace("profileId",profileId),profileUpdate)
     }
     public deleteProfile(id: string){
         return httpClient.get(PROFILE_ENDPOINTS.DELETE.replace("userid",id))
     }
+
+    public getALLParcours(){
+        return httpClient.get(PROFILE_ENDPOINTS.GET_PARCOURS)
+    }
+
 
 }
 export const profileService = new ProfileService()

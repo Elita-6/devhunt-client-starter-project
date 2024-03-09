@@ -3,9 +3,10 @@ import {Pencil} from "lucide-react";
 import {Button} from "@/components/ui/button";
 import React , {useState} from "react";
 import {useSession} from "next-auth/react";
-import CreateProjectModal from "@/app/dashboard/profiles/_components/project/create_project_modal";
+import EditProfileModal from "@/app/dashboard/profiles/_components/edit_profile.modal";
+import CreateExperienceModal from "@/app/dashboard/profiles/_components/create_experience_modal";
 
-export function CreateProject({profileId}: {profileId: string}) {
+export function CreateExperience({profileId}: {profileId: string}) {
     const [isCreate,setIsCreate] = useState(false)
     const session = useSession();
     const HandleClick = ()=>{
@@ -15,11 +16,11 @@ export function CreateProject({profileId}: {profileId: string}) {
         <>
             {
                 isCreate && (
-                    <CreateProjectModal HandleClick={HandleClick} profileId={profileId}  />
+                    <CreateExperienceModal HandleClick={HandleClick} profileId={profileId}  />
                 )
             }
-            <Button onClick={HandleClick} className="flex gap-2">
-                Add project
+            <Button onClick={HandleClick} className=" flex gap-2">
+                Add experience
             </Button>
         </>
 

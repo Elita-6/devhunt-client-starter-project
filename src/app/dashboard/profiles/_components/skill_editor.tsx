@@ -15,17 +15,15 @@ interface ISkillEditor {
 }
 
 export function SkillsEditor(props: ISkillEditor) {
-    const skills = props.skills.map(skill =>{
-         return  {tecnologyId: skill.tecnologyId, technologyDesignation: skill.technologyDesignation}
-    })
-    const [skillsUpdate, setSkillsUpdate] = useState(skills);
+
+    const [skillsUpdate, setSkillsUpdate] = useState(props.skills);
     const {mutate: updateUserSkills, isLoading} = useUpdateUserSkills(props.profileId);
 
     const handleSaveClick = (e: React.MouseEvent<HTMLButtonElement>) => {
         e.preventDefault();
         console.log(skillsUpdate, props.skills);
-        const originalsId = props.skills.map(s => s.tecnologyId).filter(id => id != undefined);
-        const newIds = skillsUpdate.map(su => su.tecnologyId).filter(id => id != undefined);
+        const originalsId = props.skills.map(s => s.technologyId).filter(id => id != undefined);
+        const newIds = skillsUpdate.map(su => su.technologyId).filter(id => id != undefined);
 
         const {added, removed} = findAddedAndRemovedItems(originalsId,newIds);
         updateUserSkills({added, removed})
@@ -38,7 +36,7 @@ export function SkillsEditor(props: ISkillEditor) {
         setSkillsUpdate((prev) => [...prev, tag])
     }
     const  handleOnRemoveTag = (tag: SelectableItem) =>  {
-        setSkillsUpdate((prevState) => [...prevState.filter(skill=> skill.tecnologyId !== tag.tecnologyId)])
+        setSkillsUpdate((prevState) => [...prevState.filter(skill=> skill.technologyId !== tag.technologyId)])
     }
 
     return(
