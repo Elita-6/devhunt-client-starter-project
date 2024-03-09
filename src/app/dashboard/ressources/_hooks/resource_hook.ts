@@ -9,7 +9,7 @@ export  const useCreateResource= ()=>{
     return useMutation(
         {
             mutationKey:['resource','create'],
-            mutationFn: (resourceToCreate:IResourceDto)=> resourceService.createResource(resourceToCreate),
+            mutationFn: (resourceToCreate:FormData)=> resourceService.createResource(resourceToCreate),
             onSuccess: async ()=>{
                 await queryClient.resetQueries(['resource'])
                 await queryClient.invalidateQueries(['resource'])

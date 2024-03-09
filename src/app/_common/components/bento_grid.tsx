@@ -17,45 +17,48 @@ const Skeleton = () => (
 );
 const items = [
     {
-        title: "The Dawn of Innovation",
-        description: "Explore the birth of groundbreaking ideas and inventions.",
+        title: "Software engineering and database",
+        description: "Software engineering involves systematic approaches to software development, " +
+            "while databases are structured repositories for efficient data storage and retrieval.",
         header: <Skeleton />,
         icon: <IconClipboardCopy className="h-4 w-4 text-neutral-500" />,
     },
     {
-        title: "The Digital Revolution",
-        description: "Dive into the transformative power of technology.",
+        title: "General computer science",
+        description: "General computer science covers fundamental principles and concepts in computing, such as algorithms, " +
+            "data structures, programming languages, and system architecture.",
         header: <Skeleton />,
         icon: <IconFileBroken className="h-4 w-4 text-neutral-500" />,
     },
     {
-        title: "The Art of Design",
-        description: "Discover the beauty of thoughtful and functional design.",
+        title: "Intelligence artificial",
+        description: "Artificial intelligence involves creating computer systems that mimic human intelligence, enabling tasks like learning and problem-solving.",
         header: <Skeleton />,
         icon: <IconSignature className="h-4 w-4 text-neutral-500" />,
     },
     {
-        title: "The Power of Communication",
+        title: "Network and system administrator",
         description:
-            "Understand the impact of effective communication in our lives.",
+            "Network and system administrators manage and maintain computer networks and systems, ensuring their smooth operation and security.",
         header: <Skeleton />,
         icon: <IconTableColumn className="h-4 w-4 text-neutral-500" />,
     },
     {
-        title: "The Pursuit of Knowledge",
-        description: "Join the quest for understanding and enlightenment.",
+        title: "Cybersecurity",
+        description: "Cybersecurity focuses on protecting computer systems, networks, and data from cyber threats and attacks.",
         header: <Skeleton />,
         icon: <IconArrowWaveRightUp className="h-4 w-4 text-neutral-500" />,
     },
     {
-        title: "The Joy of Creation",
-        description: "Experience the thrill of bringing ideas to life.",
+        title: "Governance and data engineering",
+        description: "Governance of data involves establishing policies and practices for managing data effectively, while data engineering focuses on designing and building systems for collecting, storing, and analyzing data.",
         header: <Skeleton />,
         icon: <IconBoxAlignTopLeft className="h-4 w-4 text-neutral-500" />,
     },
     {
-        title: "The Spirit of Adventure",
-        description: "Embark on exciting journeys and thrilling discoveries.",
+        title: "Connected objects",
+        description: "Connected objects, also known as IoT devices, are physical devices embedded with sensors, software, and other technologies to connect and exchange data with other devices or systems."
+        ,
         header: <Skeleton />,
         icon: <IconBoxAlignRightFilled className="h-4 w-4 text-neutral-500" />,
     },

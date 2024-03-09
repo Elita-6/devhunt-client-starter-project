@@ -65,7 +65,7 @@ const PostItem = (props:Partial<IPost>) => {
                                 props.reaction ? (
                                     <Reaction postId={props.postId!} reaction={props.reaction?.length!}/>
                                 ):(
-                                    <Reaction postId={props.postId!} reaction={10}/>
+                                    <Reaction postId={props.postId!} reaction={0}/>
                                 )
                             }
                             <Comment postId={props.postId!} comment={props.comments?.length!} isReply={isReply} HandleClick={HandleClickReply} firstName={props.user?.firstName!} username={props.user?.userName!} profileUrl={props.user?.profileUrl!} postTitle={format(date, 'MMM dd, HH:mm a')}/>

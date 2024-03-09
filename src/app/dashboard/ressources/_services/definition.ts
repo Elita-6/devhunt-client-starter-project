@@ -3,7 +3,7 @@ import {IUser} from "@/app/_common/definition";
 export interface IResourceDto{
     tags:string[]
     resourceName:string
-    file: File
+    file: File[]
 }
 export interface IResource{
     resourceId:string
