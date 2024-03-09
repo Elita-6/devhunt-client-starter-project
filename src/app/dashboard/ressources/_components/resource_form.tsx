@@ -4,8 +4,8 @@ import {SubmitHandler, useForm} from "react-hook-form";
 import {ITag} from "@/app/dashboard/discussions/_services/definition";
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Spinner } from 'flowbite-react';
 import {useCreateResource} from "@/app/dashboard/ressources/_hooks/resource_hook";
+import {CircularProgress} from "@mui/material";
 
 interface IFormInput{
     resourceName:string
@@ -70,7 +70,7 @@ const ResourceForm = (props:Props) => {
                 {
                     isLoading ?(
                         <>
-                            <Spinner aria-label="Spinner button example" size="sm" />
+                            <CircularProgress />
                             <span className="pl-3">Loading...</span>
                         </>
                     ):
