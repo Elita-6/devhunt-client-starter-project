@@ -2,6 +2,7 @@ import { useMutation, useQuery, useQueryClient } from "react-query";
 import { profileService } from "@/app/dashboard/profiles/_services/profile_service";
 import { techService } from "@/app/dashboard/profiles/_services/tech_service";
 import { userService } from "@/app/dashboard/profiles/_services/user_service";
+import {IUpdateUserSkillsDTo} from "@/app/dashboard/profiles/_services/definition";
 
 
 // tech
@@ -30,17 +31,17 @@ export const useFetchUserProfile =(userid: string)=>{
 export const useFetchUserSkills =(profileId: string)=>{
     return useQuery({
         queryKey:['user_skills',profileId],
-        queryFn:()=> profileService.getUserProfileById(profileId)
+        queryFn:()=> profileService.getUserSkills(profileId)
     })
 }
 
 export const useUpdateUserSkills = (profileId: string) => {
     const queryClient = useQueryClient()
     return useMutation({
-        /*mutationFn: (example: IExampleDto ) => {},*/
+        mutationFn: ( updateData: IUpdateUserSkillsDTo) => profileService.updateUserSkills(profileId, updateData.added, updateData.removed),
         onSuccess: async () => {
             await queryClient.invalidateQueries(['user_skills', profileId])
-           // await queryClient.resetQueries(['example'])
+            await queryClient.resetQueries(['user_skills', profileId])
         }
     })
 }
