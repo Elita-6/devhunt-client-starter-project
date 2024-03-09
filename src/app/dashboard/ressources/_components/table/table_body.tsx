@@ -25,38 +25,34 @@ const TableBody: React.FC = () => {
     const dataT: TableRowProps[] = [
         {
             image: "https://via.placeholder.com/150",
-            title: "Application de gestion des tâches",
+            title: "Algorithme pour les nuls",
             technologies: [
-                { name: "React.js", icon: "https://example.com/react-icon.png" },
-                { name: "Node.js", icon: "https://example.com/nodejs-icon.png" },
-                { name: "MongoDB", icon: "https://example.com/mongodb-icon.png" },
+                { name: "Algo", icon: "https://example.com/react-icon.png" },
+                { name: "Python", icon: "https://example.com/nodejs-icon.png" },
+
             ],
-            author: "John Doe",
-            timeAgo: "Il y a 3 jours",
+            author: "Riry Nomenjanahary",
+            timeAgo: "3 hour ago",
             onDownload: () => console.log("Téléchargement 1"),
         },
         {
             image: "https://via.placeholder.com/150",
-            title: "Application de suivi des dépenses",
+            title: "React fundamentals",
             technologies: [
-                { name: "Vue.js", icon: "https://example.com/vuejs-icon.png" },
-                { name: "Firebase", icon: "https://example.com/firebase-icon.png" },
-                { name: "Tailwind CSS", icon: "https://example.com/tailwindcss-icon.png" },
+                { name: "React", icon: "https://example.com/vuejs-icon.png" },
             ],
-            author: "Jane Smith",
-            timeAgo: "Il y a 1 semaine",
+            author: "Antonino",
+            timeAgo: "1 day ago",
             onDownload: () => console.log("Téléchargement 2"),
         },
         {
             image: "https://via.placeholder.com/150",
-            title: "Application de partage de recettes",
+            title: "Web development roadmap",
             technologies: [
-                { name: "Angular", icon: "https://example.com/angular-icon.png" },
-                { name: "Express.js", icon: "https://example.com/expressjs-icon.png" },
-                { name: "MySQL", icon: "https://example.com/mysql-icon.png" },
+                { name: "Web development", icon: "https://example.com/angular-icon.png" },
             ],
-            author: "Alice Johnson",
-            timeAgo: "Il y a 2 semaines",
+            author: "Andrianiaina Nomena",
+            timeAgo: "8 hours ago",
             onDownload: () => console.log("Téléchargement 3"),
         },
     ];
