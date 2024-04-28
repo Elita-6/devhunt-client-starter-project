@@ -58,7 +58,7 @@ To set up the environment for local development, follow these steps:
 - `NEXTAUTH_URL`: Base URL for the application.
 - `GITHUB_CLIENT_SECRET`: Client secret for GitHub OAuth authentication.
 - `GITHUB_CLIENT_ID`: Client ID for GitHub OAuth authentication.
-- `OPEN_API_KEY`: API key for accessing open APIs.
+- `OPEN_API_KEY`: API key for accessing openai APIs.
 
 ## Feedback and Support
 
