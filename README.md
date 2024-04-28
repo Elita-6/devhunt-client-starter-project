@@ -43,8 +43,6 @@ To set up the environment for local development, follow these steps:
     GITHUB_CLIENT_SECRET=""
     GITHUB_CLIENT_ID=""
     OPEN_API_KEY=""
-    IM_KEY=""
-    IM_SECRET=""
     ```
 
 4. Start the development server:
@@ -61,8 +59,6 @@ To set up the environment for local development, follow these steps:
 - `GITHUB_CLIENT_SECRET`: Client secret for GitHub OAuth authentication.
 - `GITHUB_CLIENT_ID`: Client ID for GitHub OAuth authentication.
 - `OPEN_API_KEY`: API key for accessing open APIs.
-- `IM_KEY`: Key for accessing instant messaging service.
-- `IM_SECRET`: Secret for accessing instant messaging service.
 
 ## Feedback and Support
 
